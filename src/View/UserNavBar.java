@@ -273,6 +273,9 @@ public class UserNavBar extends javax.swing.JFrame {
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         // TODO add your handling code here:
+            if(evt.getSource() == profileButton) {
+            
+        }
     }//GEN-LAST:event_profileButtonActionPerformed
 
     private void profileButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButton1ActionPerformed
