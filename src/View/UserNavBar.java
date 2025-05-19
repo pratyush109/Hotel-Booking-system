@@ -37,10 +37,10 @@ public class UserNavBar extends javax.swing.JFrame {
         bookroomButton = new javax.swing.JButton();
         spacePanel1 = new javax.swing.JPanel();
         spacePanel3 = new javax.swing.JPanel();
-        profileButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         spacePanel2 = new javax.swing.JPanel();
         spacePanel4 = new javax.swing.JPanel();
-        profileButton1 = new javax.swing.JButton();
+        profileButton = new javax.swing.JButton();
         contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,15 +123,15 @@ public class UserNavBar extends javax.swing.JFrame {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        profileButton.setBackground(new java.awt.Color(72, 99, 127));
-        profileButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        profileButton.setForeground(new java.awt.Color(255, 255, 255));
-        profileButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\logout.png")); // NOI18N
-        profileButton.setText("Log out");
-        profileButton.setBorder(null);
-        profileButton.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setBackground(new java.awt.Color(72, 99, 127));
+        logoutButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\logout.png")); // NOI18N
+        logoutButton.setText("Log out");
+        logoutButton.setBorder(null);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtonActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
@@ -165,15 +165,15 @@ public class UserNavBar extends javax.swing.JFrame {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        profileButton1.setBackground(new java.awt.Color(72, 99, 127));
-        profileButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        profileButton1.setForeground(new java.awt.Color(255, 255, 255));
-        profileButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\user.png")); // NOI18N
-        profileButton1.setText("Profile");
-        profileButton1.setBorder(null);
-        profileButton1.addActionListener(new java.awt.event.ActionListener() {
+        profileButton.setBackground(new java.awt.Color(72, 99, 127));
+        profileButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        profileButton.setForeground(new java.awt.Color(255, 255, 255));
+        profileButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\user.png")); // NOI18N
+        profileButton.setText("Profile");
+        profileButton.setBorder(null);
+        profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButton1ActionPerformed(evt);
+                profileButtonActionPerformed(evt);
             }
         });
 
@@ -191,9 +191,9 @@ public class UserNavBar extends javax.swing.JFrame {
                 .addContainerGap(86, Short.MAX_VALUE))
             .addComponent(spacePanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(spacePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(profileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(spacePanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(profileButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,11 +213,11 @@ public class UserNavBar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spacePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(profileButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spacePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(351, 351, 351))
         );
 
@@ -271,16 +271,19 @@ public class UserNavBar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mybookingButtonActionPerformed
 
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        // TODO add your handling code here:
+            if(evt.getSource() == logoutButton) {
+            
+        }
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         // TODO add your handling code here:
             if(evt.getSource() == profileButton) {
             
         }
     }//GEN-LAST:event_profileButtonActionPerformed
-
-    private void profileButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profileButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,11 +324,11 @@ public class UserNavBar extends javax.swing.JFrame {
     private javax.swing.JButton bookroomButton;
     private javax.swing.JPanel contentPanel;
     private javax.swing.JButton dashboardButton;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton mybookingButton;
     private javax.swing.JButton profileButton;
-    private javax.swing.JButton profileButton1;
     private javax.swing.JPanel spacePanel1;
     private javax.swing.JPanel spacePanel2;
     private javax.swing.JPanel spacePanel3;

@@ -75,9 +75,9 @@
               </Group>
               <Component id="spacePanel3" alignment="0" max="32767" attributes="0"/>
               <Component id="spacePanel2" alignment="0" max="32767" attributes="0"/>
-              <Component id="profileButton" alignment="0" max="32767" attributes="0"/>
+              <Component id="logoutButton" alignment="0" max="32767" attributes="0"/>
               <Component id="spacePanel4" alignment="0" max="32767" attributes="0"/>
-              <Component id="profileButton1" alignment="0" max="32767" attributes="0"/>
+              <Component id="profileButton" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -98,11 +98,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="spacePanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="profileButton1" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="profileButton" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="spacePanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="profileButton" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="logoutButton" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="351" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -244,7 +244,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JButton" name="profileButton">
+        <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7f" green="63" red="48" type="rgb"/>
@@ -264,7 +264,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profileButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="spacePanel2">
@@ -319,7 +319,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JButton" name="profileButton1">
+        <Component class="javax.swing.JButton" name="profileButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7f" green="63" red="48" type="rgb"/>
@@ -339,7 +339,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profileButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profileButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
