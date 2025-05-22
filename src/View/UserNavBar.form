@@ -43,7 +43,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="contentPanel" alignment="0" max="32767" attributes="0"/>
-          <Component id="menuPanel" alignment="0" pref="720" max="32767" attributes="0"/>
+          <Component id="menuPanel" alignment="0" pref="988" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -121,7 +121,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dell\Desktop\sem2Project\images\dashboard.png"/>
+              <Image iconType="3" name="/Images/dashboard.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Dashboard"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -155,7 +155,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dell\Desktop\sem2Project\images\book.png"/>
+              <Image iconType="3" name="/Images/book.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="My Booking"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -178,7 +178,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dell\Desktop\sem2Project\images\hotel (3).png"/>
+              <Image iconType="3" name="/Images/bookroom.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Book Room"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -256,7 +256,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dell\Desktop\sem2Project\images\logout.png"/>
+              <Image iconType="3" name="/Images/logout.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Log out"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -331,7 +331,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dell\Desktop\sem2Project\images\user.png"/>
+              <Image iconType="3" name="/Images/user.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Profile"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

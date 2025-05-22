@@ -55,7 +55,7 @@ public class UserNavBar extends javax.swing.JFrame {
         dashboardButton.setBackground(new java.awt.Color(72, 99, 127));
         dashboardButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         dashboardButton.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\dashboard.png")); // NOI18N
+        dashboardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard.png"))); // NOI18N
         dashboardButton.setText("Dashboard");
         dashboardButton.setBorder(null);
         dashboardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class UserNavBar extends javax.swing.JFrame {
         mybookingButton.setBackground(new java.awt.Color(72, 99, 127));
         mybookingButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         mybookingButton.setForeground(new java.awt.Color(255, 255, 255));
-        mybookingButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\book.png")); // NOI18N
+        mybookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/book.png"))); // NOI18N
         mybookingButton.setText("My Booking");
         mybookingButton.setBorder(null);
         mybookingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class UserNavBar extends javax.swing.JFrame {
         bookroomButton.setBackground(new java.awt.Color(72, 99, 127));
         bookroomButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         bookroomButton.setForeground(new java.awt.Color(255, 255, 255));
-        bookroomButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\hotel (3).png")); // NOI18N
+        bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bookroom.png"))); // NOI18N
         bookroomButton.setText("Book Room");
         bookroomButton.setBorder(null);
         bookroomButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,7 @@ public class UserNavBar extends javax.swing.JFrame {
         logoutButton.setBackground(new java.awt.Color(72, 99, 127));
         logoutButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(255, 255, 255));
-        logoutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\logout.png")); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
         logoutButton.setText("Log out");
         logoutButton.setBorder(null);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +168,7 @@ public class UserNavBar extends javax.swing.JFrame {
         profileButton.setBackground(new java.awt.Color(72, 99, 127));
         profileButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         profileButton.setForeground(new java.awt.Color(255, 255, 255));
-        profileButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\user.png")); // NOI18N
+        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
         profileButton.setText("Profile");
         profileButton.setBorder(null);
         profileButton.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +247,7 @@ public class UserNavBar extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
         );
 
         pack();
