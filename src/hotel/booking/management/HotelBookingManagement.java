@@ -4,17 +4,24 @@
  */
 package hotel.booking.management;
 
+import Database.Database;
+import Database.Mysqlconnection;
+
 /**
  *
  * @author Pratyush
  */
 public class HotelBookingManagement {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
-    }
-    
+        Database db =  new Mysqlconnection();
+        if(db.openConnection()!=null) {
+            System.out.println("Database connected successfully");
+                  
+                    }
+        else {
+            System.out.println("Failed to connect to database");
+        }
+    } 
 }
