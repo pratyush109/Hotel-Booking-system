@@ -9,6 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
+
+import Database.mysqlconnection;
+import Database.database;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+
 /**
  *
  * @author renisa
@@ -52,7 +59,7 @@ public class registerform extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         cpassword1 = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
+        login = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,7 +94,7 @@ public class registerform extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("\"your comfort our piroity\"");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Screenshot from 2025-05-19 19-34-39.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo 33.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabel2.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabel2.setPreferredSize(new java.awt.Dimension(25, 25));
@@ -189,8 +196,13 @@ public class registerform extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("login");
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("login");
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -206,24 +218,24 @@ public class registerform extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(password)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(jLabel13))
-                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Username, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(login))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel13))
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cpassword1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Username, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                                 .addComponent(Email, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Name, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cpassword1, javax.swing.GroupLayout.Alignment.LEADING))))
+                                .addComponent(Name, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(registerbutton)))
@@ -261,7 +273,7 @@ public class registerform extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                    .addComponent(login))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -276,8 +288,8 @@ public class registerform extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -287,8 +299,8 @@ public class registerform extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -300,7 +312,7 @@ public class registerform extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(466, Short.MAX_VALUE))
+                .addContainerGap(377, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,24 +362,58 @@ if(Username.getText().isEmpty()){
     }//GEN-LAST:event_UsernameFocusLost
 
     private void registerbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbuttonActionPerformed
-    // Step 1: Get input from text fields
     String fullName = Name.getText();
     String email = Email.getText();
     String username = Username.getText();
     String pass = new String(password.getPassword());
     String confirmPass = new String(cpassword1.getPassword());
-    
-    // Step 2: Create Registrationpagedata object
-    Registrationpagedata reg = new Registrationpagedata(fullName, email, username, pass, confirmPass);
-    
-    // Step 3: Validate
+
     if (!pass.equals(confirmPass)) {
         JOptionPane.showMessageDialog(null, "Passwords do not match!");
-    } else {
-        JOptionPane.showMessageDialog(null, "Registration Successful!\nWelcome okkoksaokodaks, " + reg.getFullName());
+        return;
     }
 
-        // TODO add your handling code here:
+    Registrationpagedata reg = new Registrationpagedata(fullName, email, username, pass, confirmPass);
+
+    database db = new mysqlconnection();
+    Connection conn = db.openConnection();
+
+    if (conn == null) {
+        JOptionPane.showMessageDialog(null, "Database connection failed.");
+        return;
+    }
+
+    try {
+        // Check if user already exists
+        String checkQuery = "SELECT * FROM users WHERE username = '" + username + "'";
+        ResultSet rs = db.runQuery(conn, checkQuery);
+
+        if (rs != null && rs.next()) {
+            JOptionPane.showMessageDialog(null, "Username already exists. Please choose another.");
+        } else {
+            // Insert new user
+            String insertQuery = "INSERT INTO users (full_name, email_address, username, password, security_answer) VALUES ('"
+                    + fullName + "', '"
+                    + email + "', '"
+                    + username + "', '"
+                    + pass 
+                     + "', '')"; // security_answer left empty or add input if needed
+
+            int result = db.executeUpdate(conn, insertQuery);
+
+            if (result > 0) {
+                JOptionPane.showMessageDialog(null, "Registration Successful!\nWelcome, " + reg.getFullName());
+            } else {
+                JOptionPane.showMessageDialog(null, "Registration failed. Please try again.");
+            }
+        }
+
+        db.closeConnection(conn);
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_registerbuttonActionPerformed
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
@@ -398,6 +444,11 @@ password.setText("");
     private void cpassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpassword1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpassword1ActionPerformed
+
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_loginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -449,13 +500,40 @@ password.setText("");
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel login;
     private javax.swing.JPasswordField password;
     private javax.swing.JButton registerbutton;
     // End of variables declaration//GEN-END:variables
+
+    public Object getregisterbutton() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public void addAddUserListener(ActionListener listener) {
+    registerbutton.addActionListener(listener);
+}
+public javax.swing.JTextField getEmailField() {
+    return Email;
+}
+public javax.swing.JTextField getFullName() {
+    return Name;
+}
+public javax.swing.JTextField getUsername() {
+    return Username;
+}
+
+public javax.swing.JTextField password() {
+    return password;
+}
+public javax.swing.JTextField cpassword() {
+    return cpassword1;
+}
+public javax.swing.JTextField securityAnswer() {
+    return Security_field;
+}
+    
 }
