@@ -4,8 +4,10 @@
  */
 package hotel.booking.management;
 
+import View.login;
+import controller.Logincontroller;
+
 /**
- *
  * @author Pratyush
  */
 public class HotelBookingManagement {
@@ -14,7 +16,8 @@ public class HotelBookingManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        login loginForm = new login(); // Your login JFrame class
+        Logincontroller controller = new Logincontroller(loginForm); // FIXED LINE
+        controller.open(); // Show the login window
     }
-    
 }
