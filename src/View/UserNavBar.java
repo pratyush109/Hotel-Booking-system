@@ -10,12 +10,12 @@ import java.awt.Component;
  *
  * @author Dell
  */
-public class UserNavBar extends javax.swing.JFrame {
+public class UserNavbar extends javax.swing.JFrame {
 
     /**
      * Creates new form UserNavBar
      */
-    public UserNavBar() {
+    public UserNavbar() {
         initComponents();
         menuLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -44,9 +44,7 @@ public class UserNavBar extends javax.swing.JFrame {
         contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         menuPanel.setBackground(new java.awt.Color(48, 47, 47));
         menuPanel.setMaximumSize(new java.awt.Dimension(500, 720));
@@ -83,7 +81,7 @@ public class UserNavBar extends javax.swing.JFrame {
         bookroomButton.setBackground(new java.awt.Color(72, 99, 127));
         bookroomButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         bookroomButton.setForeground(new java.awt.Color(255, 255, 255));
-        bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bookroom.png"))); // NOI18N
+        bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotel (3).png"))); // NOI18N
         bookroomButton.setText("Book Room");
         bookroomButton.setBorder(null);
         bookroomButton.addActionListener(new java.awt.event.ActionListener() {
@@ -302,20 +300,23 @@ public class UserNavBar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserNavBar().setVisible(true);
+                new UserNavbar().setVisible(true);
             }
         });
     }
