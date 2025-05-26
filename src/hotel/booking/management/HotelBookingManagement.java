@@ -4,6 +4,11 @@
  */
 package hotel.booking.management;
 
+import Controller.RegistrationController;
+import Database.Database;
+import Database.MySqlConnection;
+import View.Register;
+
 /**
  *
  * @author Pratyush
@@ -15,6 +20,18 @@ public class HotelBookingManagement {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+                Database db = new MySqlConnection();
+        if(db.openConnection() !=null) {
+            System.out.println("Database connection successfull");
+        } 
+        else {
+            System.out.println("Database connection failed");
+        }
+        
+        Register registerform = new Register();
+        RegistrationController controller = new RegistrationController(registerform);
+        controller.open();
+      
     }
     
 }
