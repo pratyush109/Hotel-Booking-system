@@ -4,7 +4,9 @@
  */
 package View;
 
+import Controller.LoginController;
 import java.awt.event.ActionListener;
+
 
 
 /**
@@ -14,7 +16,7 @@ import java.awt.event.ActionListener;
 public class Register extends javax.swing.JFrame {
 
     /**
-     * Creates new form registerform
+     * Creates new form register form
      */
     public Register() {
         initComponents();
@@ -109,6 +111,14 @@ public class Register extends javax.swing.JFrame {
         jLabel8.setText("Password");
 
         name.setText("full name");
+        name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nameFocusLost(evt);
+            }
+        });
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
@@ -119,6 +129,14 @@ public class Register extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         email.setText("email");
+        email.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                emailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                emailFocusLost(evt);
+            }
+        });
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
@@ -126,11 +144,27 @@ public class Register extends javax.swing.JFrame {
         });
 
         username.setText("username");
+        username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameFocusLost(evt);
+            }
+        });
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Security Question : What was your childhood nickname?");
 
         securityQuestion.setText("nickname");
+        securityQuestion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                securityQuestionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                securityQuestionFocusLost(evt);
+            }
+        });
         securityQuestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securityQuestionActionPerformed(evt);
@@ -142,12 +176,33 @@ public class Register extends javax.swing.JFrame {
         registerbutton.setText("Register");
 
         password.setText("password");
+        password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFocusLost(evt);
+            }
+        });
 
         cpassword.setText("password");
+        cpassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cpasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cpasswordFocusLost(evt);
+            }
+        });
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("<html><u>Already have an account?<u><html>");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -255,6 +310,100 @@ public class Register extends javax.swing.JFrame {
     private void securityQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securityQuestionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_securityQuestionActionPerformed
+
+    private void nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusGained
+        // TODO add your handling code here:
+        if(name.getText().equals("full name")) {
+        name.setText("");
+        }
+    }//GEN-LAST:event_nameFocusGained
+
+    private void nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusLost
+        // TODO add your handling code here:
+        if(name.getText().equals("")) {
+            name.setText("full name");
+        }
+    }//GEN-LAST:event_nameFocusLost
+
+    private void emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusGained
+        // TODO add your handling code here:
+         if(email.getText().equals("email")) {
+        email.setText("");
+        }
+    }//GEN-LAST:event_emailFocusGained
+
+    private void emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusLost
+        // TODO add your handling code here:
+          if(email.getText().equals("")) {
+        email.setText("email");
+        }
+    }//GEN-LAST:event_emailFocusLost
+
+    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+        // TODO add your handling code here:
+          if(username.getText().equals("username")) {
+        username.setText("");
+        }
+    }//GEN-LAST:event_usernameFocusGained
+
+    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+        // TODO add your handling code here:
+          if(username.getText().equals("")) {
+        username.setText("username");
+        }
+    }//GEN-LAST:event_usernameFocusLost
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        // TODO add your handling code here:
+          if(password.getText().equals("password")) {
+        password.setText("");
+        }
+    }//GEN-LAST:event_passwordFocusGained
+
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        // TODO add your handling code here:
+          if(password.getText().equals("")) {
+        password.setText("password");
+        }
+    }//GEN-LAST:event_passwordFocusLost
+
+    private void cpasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpasswordFocusGained
+        // TODO add your handling code here:
+          if(cpassword.getText().equals("password")) {
+        cpassword.setText("");
+        }
+    }//GEN-LAST:event_cpasswordFocusGained
+
+    private void cpasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpasswordFocusLost
+        // TODO add your handling code here:
+          if(cpassword.getText().equals("")) {
+        cpassword.setText("password");
+        }
+    }//GEN-LAST:event_cpasswordFocusLost
+
+    private void securityQuestionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_securityQuestionFocusGained
+        // TODO add your handling code here:
+          if(securityQuestion.getText().equals("nickname")) {
+        securityQuestion.setText("");
+        }
+    }//GEN-LAST:event_securityQuestionFocusGained
+
+    private void securityQuestionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_securityQuestionFocusLost
+        // TODO add your handling code here:
+          if(securityQuestion.getText().equals("")) {
+        securityQuestion.setText("nickname");
+        }
+    }//GEN-LAST:event_securityQuestionFocusLost
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        UserLogin login = new UserLogin();
+        LoginController logController = new LoginController(login);
+        logController.open();
+        
+     
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
      * @param args the command line arguments

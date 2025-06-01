@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/BookingDao.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/UserDao.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/BookingModel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/BookingController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/RegistrationController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/BookRoomPanel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Register.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/UserDashboard.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/hotel/booking/management/HotelBookingManagement.java</file>
+        </group>
     </open-files>
 </project-private>

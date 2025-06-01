@@ -44,6 +44,7 @@ class AddUserListener implements ActionListener {
             String cpassword = new String(register.getCPasswordField().getPassword());
             String securityAnswer = register.getSecurityQuestion().getText();
             String username = register.getUsernameField().getText();
+            
             Userdata user = new Userdata(fullname, email,username,password, securityAnswer);
             boolean check = userdao.checkUser(user);
 

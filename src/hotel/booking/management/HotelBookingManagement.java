@@ -4,10 +4,10 @@
  */
 package hotel.booking.management;
 
-import Controller.RegistrationController;
+import Controller.*;
 import Database.Database;
 import Database.MySqlConnection;
-import View.Register;
+import View.*;
 
 /**
  *
@@ -27,10 +27,16 @@ public class HotelBookingManagement {
         else {
             System.out.println("Database connection failed");
         }
+       
         
-        Register registerform = new Register();
-        RegistrationController controller = new RegistrationController(registerform);
-        controller.open();
+        UserLogin loginform = new UserLogin();
+        LoginController logcontroller = new LoginController(loginform);
+        logcontroller.open();
+        
+       
+        
+
+      
       
     }
     

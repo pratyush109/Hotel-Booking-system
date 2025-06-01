@@ -12,6 +12,8 @@ public class LoginModel {
     private String username;
     private String password;
     
+    public LoginModel() {}  // a non-parameterized constructor , so that i dont have to pass the parameter in some cases 
+    
     public LoginModel(String username, String password) {
         this.username = username;
         this.password = password;

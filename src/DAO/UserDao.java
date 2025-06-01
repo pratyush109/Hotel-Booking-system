@@ -54,23 +54,28 @@ public class UserDao {
             
             
         }
-      public boolean login(LoginModel user) {
+      public int login(LoginModel user) {
+          int user_Id = -1;
           Connection conn = connection.openConnection();
-          String sql = "SELECT username, password FROM Users WHERE username = ? AND password = ?";
+          String sql = "SELECT user_id FROM Users WHERE username = ? AND password = ?";
           
           try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1,user.getUsername());
             pstmt.setString(2, user.getPassword());
 
             ResultSet result = pstmt.executeQuery();
-            return result.next();
+            if(result.next()) {
+                return result.getInt("user_id");
+            }
+           
           
         } catch(SQLException ex) {
               Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-              return false;
+              return -1;
         } finally {
                 connection.closeConnection(conn);
             }
+          return user_Id;
      
     }
       public Userdata getSecutityAnswerAndUsername(String username) {
