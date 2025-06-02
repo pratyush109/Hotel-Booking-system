@@ -150,6 +150,7 @@ public class UserDashboard extends javax.swing.JFrame {
         dashboardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_1.png"))); // NOI18N
         dashboardButton.setText("Dashboard");
         dashboardButton.setBorder(null);
+        dashboardButton.setFocusable(false);
         dashboardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dashboardButtonActionPerformed(evt);
@@ -166,6 +167,7 @@ public class UserDashboard extends javax.swing.JFrame {
         logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
         logoutButton.setText("Log out");
         logoutButton.setBorder(null);
+        logoutButton.setFocusable(false);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
@@ -178,6 +180,7 @@ public class UserDashboard extends javax.swing.JFrame {
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
         profileButton.setText("Profile");
         profileButton.setBorder(null);
+        profileButton.setFocusable(false);
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profileButtonActionPerformed(evt);
@@ -190,6 +193,7 @@ public class UserDashboard extends javax.swing.JFrame {
         bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/book_1.png"))); // NOI18N
         bookroomButton.setText("Book Room");
         bookroomButton.setBorder(null);
+        bookroomButton.setFocusable(false);
         bookroomButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookroomButtonActionPerformed(evt);
@@ -202,6 +206,7 @@ public class UserDashboard extends javax.swing.JFrame {
         mybookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotel (3).png"))); // NOI18N
         mybookingButton.setText("My Booking");
         mybookingButton.setBorder(null);
+        mybookingButton.setFocusable(false);
         mybookingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mybookingButtonActionPerformed(evt);
@@ -325,6 +330,7 @@ public class UserDashboard extends javax.swing.JFrame {
         bookingPanel.setVisible(false);       
         dashboardPanel.setVisible(false);
         myProfile.setVisible(true);  
+        myProfile.refreshProfile(); 
 
         
 

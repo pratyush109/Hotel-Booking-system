@@ -11,7 +11,7 @@ import View.*;
 
 /**
  *
- * @author Pratyush
+ * @author Dell
  */
 public class HotelBookingManagement {
 

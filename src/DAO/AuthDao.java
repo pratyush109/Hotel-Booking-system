@@ -15,7 +15,7 @@ import java.sql.*;
  *
  * @author Dell
  */
-public class UserDao {
+public class AuthDao {
     MySqlConnection connection = new MySqlConnection();
     
     public void register(Userdata user) {
@@ -31,7 +31,7 @@ public class UserDao {
             pstmt.setString(5, user.getSecurityAnswer());
             pstmt.executeUpdate();
         } catch(SQLException ex) {
-            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             connection.closeConnection(conn);
         } 
@@ -46,7 +46,7 @@ public class UserDao {
                 ResultSet result = pstmt.executeQuery();
                 return result.next();
             } catch (SQLException ex) {
-                Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 connection.closeConnection(conn);
           }
@@ -70,7 +70,7 @@ public class UserDao {
            
           
         } catch(SQLException ex) {
-              Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, ex);
               return -1;
         } finally {
                 connection.closeConnection(conn);
@@ -93,7 +93,7 @@ public class UserDao {
                 return user;
             }
             } catch(SQLException ex) {
-                Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, ex);
                 
             } finally {
             connection.closeConnection(conn);

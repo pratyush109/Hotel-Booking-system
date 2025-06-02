@@ -16,7 +16,7 @@ import Model.Userdata;
  */
 public class RegistrationController {
     
-    private final UserDao userdao = new UserDao();
+    private final AuthDao userdao = new AuthDao();
     private final Register register;
     
     public RegistrationController(Register register) {

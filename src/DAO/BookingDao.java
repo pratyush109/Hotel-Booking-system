@@ -44,7 +44,7 @@ public class BookingDao {
         }
         
     } catch(SQLException e) {
-         Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, e);
+         Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, e);
          return false;
     } finally {
          connection.closeConnection(conn);

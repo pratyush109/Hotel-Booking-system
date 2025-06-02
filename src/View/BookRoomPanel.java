@@ -291,7 +291,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
 
     private void noOfGuest_spinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_noOfGuest_spinnerStateChanged
         // TODO add your handling code here:
-        int value = (int )noOfGuest_spinner.getValue();
+        int value = (int)noOfGuest_spinner.getValue();
         noOfGuest_field.setText(String.valueOf(value));
     }//GEN-LAST:event_noOfGuest_spinnerStateChanged
 
@@ -346,7 +346,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
 if (availableRooms.isEmpty()) {
         JOptionPane.showMessageDialog(null, "No rooms available for the selected criteria.");
     } else {
-        // Convert List<Integer> to String[] for dropdown
+      
         String[] roomOptions = availableRooms.stream()
                                 .map(String::valueOf)
                                 .toArray(String[]::new);

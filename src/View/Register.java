@@ -90,23 +90,23 @@ public class Register extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Registration Page");
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Full Name");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username");
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email Address");
 
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Confirm Password");
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Password");
 
@@ -174,6 +174,7 @@ public class Register extends javax.swing.JFrame {
         registerbutton.setBackground(new java.awt.Color(36, 108, 119));
         registerbutton.setForeground(new java.awt.Color(255, 255, 255));
         registerbutton.setText("Register");
+        registerbutton.setFocusable(false);
 
         password.setText("password");
         password.addFocusListener(new java.awt.event.FocusAdapter() {

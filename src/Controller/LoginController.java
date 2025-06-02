@@ -4,7 +4,7 @@
  */
 package Controller;
 
-import DAO.UserDao;
+import DAO.AuthDao;
 import Model.LoginModel;
 import Session.Session;
 import View.BookRoomPanel;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class LoginController {
     
-    private final UserDao loginAuth = new UserDao();
+    private final AuthDao loginAuth = new AuthDao();
     private final UserLogin userLogin;
     private int loggedInUserId = -1;
     
