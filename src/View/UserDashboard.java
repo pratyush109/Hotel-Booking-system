@@ -5,6 +5,7 @@
 package View;
 
 import Controller.BookingController;
+import Controller.ViewBookingController;
 import java.awt.Component;
 
 
@@ -48,6 +49,7 @@ public class UserDashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
    BookingController controller = new BookingController(roomPanel);
+   ViewBookingController viewcontroller = new ViewBookingController(bookingPanel);
 
         
 
@@ -308,9 +310,10 @@ public class UserDashboard extends javax.swing.JFrame {
         roomPanel.setVisible(false);
         myProfile.setVisible(false);
         dashboardPanel.setVisible(false);
+        
+        
         bookingPanel.setVisible(true);
-
-
+       
        
     }//GEN-LAST:event_mybookingButtonActionPerformed
 
@@ -331,8 +334,6 @@ public class UserDashboard extends javax.swing.JFrame {
         dashboardPanel.setVisible(false);
         myProfile.setVisible(true);  
         myProfile.refreshProfile(); 
-
-        
 
     }//GEN-LAST:event_profileButtonActionPerformed
 

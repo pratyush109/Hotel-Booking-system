@@ -4,6 +4,10 @@
  */
 package View;
 
+import Model.BookingModel;
+import java.util.List;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Dell
@@ -27,30 +31,70 @@ public class MyBookingPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        MainFlowPanel = new javax.swing.JPanel();
 
-        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 36)); // NOI18N
-        jLabel2.setText("My Booking");
+        setBackground(new java.awt.Color(217, 217, 217));
+        setMaximumSize(new java.awt.Dimension(884, 545));
+        setMinimumSize(new java.awt.Dimension(884, 545));
+
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabel2.setText("My Bookings");
+
+        jScrollPane2.setViewportView(MainFlowPanel);
+
+        MainFlowPanel.setPreferredSize(new java.awt.Dimension(884, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(350, 350, 350)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainFlowPanel;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
+
+    public void displayBookings(List<BookingModel> bookings) {
+        MainFlowPanel.removeAll();
+        
+        if(bookings == null || bookings.isEmpty()) {
+            MainFlowPanel.add(new JLabel("No bookings found"));
+        } else {
+            for(BookingModel booking : bookings) {
+                BookingCardPanel card = new BookingCardPanel();
+                
+                card.setBookingId(booking.getBookingId());
+                card.setRoomType(booking.getRoomType());
+                card.setCheckInDate(booking.getCheckInDate());
+                card.setGuestCount(booking.getGuestCount());
+                card.setPrice("Rs. " + booking.getPrice());
+
+                
+                MainFlowPanel.add(card);
+            
+            }
+        }
+        MainFlowPanel.revalidate();
+        MainFlowPanel.repaint();
+        
+    }
+    
 }

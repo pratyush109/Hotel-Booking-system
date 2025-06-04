@@ -12,14 +12,30 @@ import Session.Session;
  */
 public class BookingModel {
   
+    private int price;
+    private int bookingId;
     private int userId;
     private int roomId;
     private String roomType;
     private int guestCount;
     private String checkInDate;
     private String checkOutDate;
-
+    
+    public BookingModel() {} // to create an empty object (used in getBookingInfo in BookingDao)
+     
+    //this constructor is for actual booking where booking id is not necessary to insert 
     public BookingModel(int roomId, String roomType, int guestCount, String checkInDate, String checkOutDate) {
+    this.userId = Session.getSession().getLoggedInUserId();
+    this.roomId = roomId;
+    this.roomType = roomType;
+    this.guestCount = guestCount;
+    this.checkInDate = checkInDate;
+    this.checkOutDate = checkOutDate;
+}
+
+    // it for the case where booking id is necessary (displaying in UI)
+    public BookingModel(int bookingId, int roomId, String roomType, int guestCount, String checkInDate, String checkOutDate) {
+        this.bookingId = bookingId;
         this.userId = Session.getSession().getLoggedInUserId();
         this.roomId = roomId;
         this.roomType = roomType;
@@ -78,6 +94,26 @@ public class BookingModel {
     public void setCheckOutDate(String checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
+    
+      // Getter and Setter for bookingId
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+    
+        // Getter and Setter for price
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+
 
    
 }

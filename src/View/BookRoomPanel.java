@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+;
 
 /**
  *
@@ -133,6 +134,9 @@ public class BookRoomPanel extends javax.swing.JPanel {
         roomType_label1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         roomType_label1.setText("Room number :");
 
+        roomNumber_field.setEditable(false);
+        roomNumber_field.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        roomNumber_field.setEnabled(false);
         roomNumber_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roomNumber_fieldActionPerformed(evt);
@@ -214,7 +218,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sofaImage_label, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         bookRoom_Label.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -381,6 +385,8 @@ if (availableRooms.isEmpty()) {
 
     private void bookNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNowButtonActionPerformed
         // TODO add your handling code here:
+       
+        
     }//GEN-LAST:event_bookNowButtonActionPerformed
 
     private void roomNumber_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomNumber_fieldActionPerformed

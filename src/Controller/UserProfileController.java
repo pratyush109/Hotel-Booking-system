@@ -19,6 +19,7 @@ public class UserProfileController {
     private final UserProfileDao userProfileDao;
     private final MyProfilePanel profilePanel;
     
+ 
     public UserProfileController(MyProfilePanel profilePanel) {
         this.profilePanel = profilePanel;
         this.userProfileDao = new UserProfileDao();
@@ -84,6 +85,6 @@ public class UserProfileController {
 
         }
     }
-   
+    
     
 }

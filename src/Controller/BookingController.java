@@ -31,7 +31,7 @@ class AddBookingListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        System.out.println("Button is clicked ");
+       
         String roomType = bookRoom.getRoomType();
         int no_of_guest = bookRoom.getNoOfGuest();
         String check_out_date = bookRoom.getCheckOutDate();
