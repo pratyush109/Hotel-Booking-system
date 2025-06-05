@@ -151,10 +151,8 @@ public class Emailverification extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Emailverification().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Emailverification().setVisible(true);
         });
     }
 
