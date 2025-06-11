@@ -7,7 +7,9 @@ package Controller;
 import DAO.BookingDao;
 import Model.BookingModel;
 import Session.Session;
+import View.ExpandedMyBookingPanel;
 import View.MyBookingPanel;
+import View.UserDashboard;
 import java.util.List;
 
 /**
@@ -18,13 +20,21 @@ public class ViewBookingController {
     
     private final BookingDao bookingDao;
     private final MyBookingPanel myBookingPanel;
+    private final UserDashboard userDashboard;
+    private final ExpandedMyBookingPanel expandedMyBookingPanel;
+  
+    
     
   
     
-    public ViewBookingController(MyBookingPanel myBookingPanel) {
+    public ViewBookingController(MyBookingPanel myBookingPanel,UserDashboard userDashboard, ExpandedMyBookingPanel expandedMyBookingPanel) {
+        
         
         this.myBookingPanel = myBookingPanel;
         this.bookingDao = new BookingDao();
+         this.userDashboard = userDashboard;
+        this.expandedMyBookingPanel = expandedMyBookingPanel;
+      
         
         LoadBookingInfo();
         
@@ -35,12 +45,13 @@ public class ViewBookingController {
         
         if(userId != -1) {
              List<BookingModel> bookingList = bookingDao.getBookingInfo();
-             myBookingPanel.displayBookings(bookingList);
+            
+             ViewExpandedBookingController expandedController = new ViewExpandedBookingController(expandedMyBookingPanel, userDashboard);
+
+             myBookingPanel.displayBookings(bookingList, expandedController);
             
         }
         
-    }
-    
-    
+    }  
     
 }
