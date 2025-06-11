@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/View/Profile.java</file>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/View/RoomBooking.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/UserProfileDao.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/MyProfilePanel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/UserProfileController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/UserDashboard.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/MyBookingPanel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Register.java</file>
         </group>
     </open-files>
 </project-private>
