@@ -4,19 +4,30 @@
  */
 package View;
 
+
+import Controller.ViewExpandedBookingController;
+
 /**
  *
  * @author Dell
  */
 public class BookingCardPanel extends javax.swing.JPanel {
+    
+    private ViewExpandedBookingController viewDetailController;
+  
+
 
     /**
      * Creates new form BookingCardPanel
      */
+  
     public BookingCardPanel() {
+      
         initComponents();
-    }
+     
 
+    }
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +48,7 @@ public class BookingCardPanel extends javax.swing.JPanel {
         guestLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        readmore_button = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(48, 47, 47));
         setMaximumSize(new java.awt.Dimension(210, 240));
@@ -102,9 +113,14 @@ public class BookingCardPanel extends javax.swing.JPanel {
         priceLabel.setForeground(new java.awt.Color(255, 255, 255));
         priceLabel.setText("price");
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("<html><u>read more.</u></html>");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        readmore_button.setForeground(new java.awt.Color(255, 255, 255));
+        readmore_button.setText("<html><u>read more.</u></html>");
+        readmore_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        readmore_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                readmore_buttonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -136,7 +152,7 @@ public class BookingCardPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(readmore_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
@@ -160,7 +176,7 @@ public class BookingCardPanel extends javax.swing.JPanel {
                     .addComponent(jLabel10)
                     .addComponent(priceLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(readmore_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -169,6 +185,13 @@ public class BookingCardPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingIdFieldActionPerformed
 
+    private void readmore_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_readmore_buttonMouseClicked
+        // TODO add your handling code here:
+        int bookingId = Integer.parseInt(bookingIdField.getText());
+        viewDetailController.detailedBookingInfo(bookingId);
+       
+    }//GEN-LAST:event_readmore_buttonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookingIdField;
@@ -176,14 +199,16 @@ public class BookingCardPanel extends javax.swing.JPanel {
     private javax.swing.JLabel guestLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel readmore_button;
     private javax.swing.JLabel roomLabel;
     // End of variables declaration//GEN-END:variables
+ 
+  
 //getter and setter for bookingId
     public int getBookingId() {
         return Integer.parseInt(bookingIdField.getText());
@@ -224,4 +249,10 @@ public class BookingCardPanel extends javax.swing.JPanel {
     public void setPrice(String price) {
         this.priceLabel.setText(price);
     }
+    public void setController(ViewExpandedBookingController controller) {
+        this.viewDetailController = controller;
+    }
+
+    
+  
 }

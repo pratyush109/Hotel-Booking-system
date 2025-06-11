@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.ViewExpandedBookingController;
 import Model.BookingModel;
 import java.util.List;
 import javax.swing.JLabel;
@@ -14,10 +15,12 @@ import javax.swing.JLabel;
  */
 public class MyBookingPanel extends javax.swing.JPanel {
 
+
+
     /**
      * Creates new form MyBookingPanel
      */
-    public MyBookingPanel() {
+    public MyBookingPanel() {       
         initComponents();
     }
 
@@ -72,7 +75,7 @@ public class MyBookingPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
-    public void displayBookings(List<BookingModel> bookings) {
+    public void displayBookings(List<BookingModel> bookings, ViewExpandedBookingController controller) {
         MainFlowPanel.removeAll();
         
         if(bookings == null || bookings.isEmpty()) {
@@ -86,6 +89,8 @@ public class MyBookingPanel extends javax.swing.JPanel {
                 card.setCheckInDate(booking.getCheckInDate());
                 card.setGuestCount(booking.getGuestCount());
                 card.setPrice("Rs. " + booking.getPrice());
+                
+                card.setController(controller);
 
                 
                 MainFlowPanel.add(card);

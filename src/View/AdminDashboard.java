@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author Dell
  */
-public class UserDashboard extends javax.swing.JFrame {
+public class AdminDashboard extends javax.swing.JFrame {
  DashboardPanel dashboardPanel;
  MyBookingPanel bookingPanel;
  BookRoomPanel roomPanel;
@@ -31,7 +31,7 @@ public class UserDashboard extends javax.swing.JFrame {
     /**
      * Creates new form UserNavBar
      */
-    public UserDashboard() {
+    public AdminDashboard() {
         initComponents();
 //        CardLayout cardLayout = (CardLayout) contentPanel.getLayout();
 
@@ -65,12 +65,7 @@ public class UserDashboard extends javax.swing.JFrame {
         
         this.pack();
         this.setLocationRelativeTo(null);
-        
-   BookingController controller = new BookingController(roomPanel);
-   ViewBookingController viewBookingController;
-   ViewExpandedBookingController detailedcontroller = new ViewExpandedBookingController(expandedMyBookingPanel, this);
-   bookingPanel.displayBookings(bookings, detailedcontroller);
-
+ 
 
         
 
@@ -95,17 +90,15 @@ public class UserDashboard extends javax.swing.JFrame {
         jComboBox6 = new javax.swing.JComboBox<>();
         jComboBox7 = new javax.swing.JComboBox<>();
         menuPanel = new javax.swing.JPanel();
-        dashboardButton = new javax.swing.JButton();
+        viewBookingButton = new javax.swing.JButton();
         menuLabel = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
         bookroomButton = new javax.swing.JButton();
         mybookingButton = new javax.swing.JButton();
         footer = new javax.swing.JPanel();
         relax_label = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         contentPanel = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
 
         jLabel7.setText("jLabel7");
 
@@ -160,23 +153,22 @@ public class UserDashboard extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1200, 650));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         menuPanel.setBackground(new java.awt.Color(48, 47, 47));
         menuPanel.setMaximumSize(new java.awt.Dimension(500, 720));
         menuPanel.setPreferredSize(new java.awt.Dimension(247, 720));
 
-        dashboardButton.setBackground(new java.awt.Color(72, 99, 127));
-        dashboardButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        dashboardButton.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_1.png"))); // NOI18N
-        dashboardButton.setText("Dashboard");
-        dashboardButton.setBorder(null);
-        dashboardButton.setFocusable(false);
-        dashboardButton.addActionListener(new java.awt.event.ActionListener() {
+        viewBookingButton.setBackground(new java.awt.Color(72, 99, 127));
+        viewBookingButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        viewBookingButton.setForeground(new java.awt.Color(255, 255, 255));
+        viewBookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/magnifier.png"))); // NOI18N
+        viewBookingButton.setText("View Bookings");
+        viewBookingButton.setBorder(null);
+        viewBookingButton.setFocusable(false);
+        viewBookingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardButtonActionPerformed(evt);
+                viewBookingButtonActionPerformed(evt);
             }
         });
 
@@ -197,24 +189,11 @@ public class UserDashboard extends javax.swing.JFrame {
             }
         });
 
-        profileButton.setBackground(new java.awt.Color(72, 99, 127));
-        profileButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        profileButton.setForeground(new java.awt.Color(255, 255, 255));
-        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
-        profileButton.setText("Profile");
-        profileButton.setBorder(null);
-        profileButton.setFocusable(false);
-        profileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtonActionPerformed(evt);
-            }
-        });
-
         bookroomButton.setBackground(new java.awt.Color(72, 99, 127));
         bookroomButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         bookroomButton.setForeground(new java.awt.Color(255, 255, 255));
-        bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/book_1.png"))); // NOI18N
-        bookroomButton.setText("Book Room");
+        bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add_1.png"))); // NOI18N
+        bookroomButton.setText("Add Room");
         bookroomButton.setBorder(null);
         bookroomButton.setFocusable(false);
         bookroomButton.addActionListener(new java.awt.event.ActionListener() {
@@ -245,11 +224,10 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addComponent(menuLabel)
                 .addGap(58, 58, 58))
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addComponent(dashboardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(bookroomButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(mybookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(profileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuPanelLayout.setVerticalGroup(
@@ -258,16 +236,14 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(menuLabel)
                 .addGap(49, 49, 49)
-                .addComponent(dashboardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addComponent(viewBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(bookroomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addComponent(mybookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(45, 45, 45)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 159, Short.MAX_VALUE))
         );
 
         footer.setBackground(new java.awt.Color(48, 47, 47));
@@ -284,10 +260,6 @@ public class UserDashboard extends javax.swing.JFrame {
         contentPanel.setBackground(new java.awt.Color(217, 217, 217));
         contentPanel.setLayout(new java.awt.CardLayout());
 
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -297,18 +269,12 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 511, Short.MAX_VALUE))
-                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
@@ -317,20 +283,20 @@ public class UserDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardButtonActionPerformed
+    private void viewBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBookingButtonActionPerformed
         // TODO add your handling code here:
      
         CardLayout c1 = (CardLayout) contentPanel.getLayout();
         c1.show(contentPanel, "dashboardPanel");
         
-    }//GEN-LAST:event_dashboardButtonActionPerformed
+    }//GEN-LAST:event_viewBookingButtonActionPerformed
 
     private void mybookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybookingButtonActionPerformed
         // TODO add your handling code here:
        CardLayout c2 = (CardLayout) contentPanel.getLayout();
         c2.show(contentPanel, "bookingPanel");
         
-        viewBookingController = new ViewBookingController(bookingPanel, this, expandedMyBookingPanel); 
+        
             
        
     }//GEN-LAST:event_mybookingButtonActionPerformed
@@ -345,15 +311,6 @@ public class UserDashboard extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_logoutButtonActionPerformed
-
-    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        // TODO add your handling code here:
-         CardLayout c3 = (CardLayout) contentPanel.getLayout();
-        c3.show(contentPanel, "profile");
-        
-        myProfile.refreshProfile(); 
-
-    }//GEN-LAST:event_profileButtonActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -406,14 +363,18 @@ public class UserDashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -422,7 +383,7 @@ public class UserDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserDashboard().setVisible(true);
+                new AdminDashboard().setVisible(true);
             }
         });
     }
@@ -430,7 +391,6 @@ public class UserDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookroomButton;
     private javax.swing.JPanel contentPanel;
-    private javax.swing.JButton dashboardButton;
     private javax.swing.JPanel footer;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -442,13 +402,12 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton mybookingButton;
-    private javax.swing.JButton profileButton;
     private javax.swing.JLabel relax_label;
+    private javax.swing.JButton viewBookingButton;
     // End of variables declaration//GEN-END:variables
 //public void showExpandedBookingPanel() {
 //   
@@ -458,12 +417,7 @@ public class UserDashboard extends javax.swing.JFrame {
 //              
 //}
 
-public void showExpandedBookingPanel(BookingModel bookingData) {
-    
-    expandedMyBookingPanel.setBookingData(bookingData);
-    CardLayout c5 = (CardLayout) contentPanel.getLayout();
-    c5.show(contentPanel, "expandedMyBookingPanel");
-}
+
 
 
 

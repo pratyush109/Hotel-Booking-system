@@ -34,8 +34,6 @@ public class HotelBookingManagement {
         logcontroller.open();
         
        
-        
-
       
       
     }
