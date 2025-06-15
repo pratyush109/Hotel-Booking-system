@@ -10,12 +10,12 @@ import java.awt.Component;
  *
  * @author Dell
  */
-public class UserNavBar extends javax.swing.JFrame {
+public class UserNavbar extends javax.swing.JFrame {
 
     /**
      * Creates new form UserNavBar
      */
-    public UserNavBar() {
+    public UserNavbar() {
         initComponents();
         menuLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -44,9 +44,7 @@ public class UserNavBar extends javax.swing.JFrame {
         contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         menuPanel.setBackground(new java.awt.Color(48, 47, 47));
         menuPanel.setMaximumSize(new java.awt.Dimension(500, 720));
@@ -55,7 +53,7 @@ public class UserNavBar extends javax.swing.JFrame {
         dashboardButton.setBackground(new java.awt.Color(72, 99, 127));
         dashboardButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         dashboardButton.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\dashboard.png")); // NOI18N
+        dashboardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard.png"))); // NOI18N
         dashboardButton.setText("Dashboard");
         dashboardButton.setBorder(null);
         dashboardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +69,7 @@ public class UserNavBar extends javax.swing.JFrame {
         mybookingButton.setBackground(new java.awt.Color(72, 99, 127));
         mybookingButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         mybookingButton.setForeground(new java.awt.Color(255, 255, 255));
-        mybookingButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\book.png")); // NOI18N
+        mybookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/book.png"))); // NOI18N
         mybookingButton.setText("My Booking");
         mybookingButton.setBorder(null);
         mybookingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +81,7 @@ public class UserNavBar extends javax.swing.JFrame {
         bookroomButton.setBackground(new java.awt.Color(72, 99, 127));
         bookroomButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         bookroomButton.setForeground(new java.awt.Color(255, 255, 255));
-        bookroomButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\hotel (3).png")); // NOI18N
+        bookroomButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotel (3).png"))); // NOI18N
         bookroomButton.setText("Book Room");
         bookroomButton.setBorder(null);
         bookroomButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +124,7 @@ public class UserNavBar extends javax.swing.JFrame {
         logoutButton.setBackground(new java.awt.Color(72, 99, 127));
         logoutButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(255, 255, 255));
-        logoutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\logout.png")); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.png"))); // NOI18N
         logoutButton.setText("Log out");
         logoutButton.setBorder(null);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +166,7 @@ public class UserNavBar extends javax.swing.JFrame {
         profileButton.setBackground(new java.awt.Color(72, 99, 127));
         profileButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         profileButton.setForeground(new java.awt.Color(255, 255, 255));
-        profileButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dell\\Desktop\\sem2Project\\images\\user.png")); // NOI18N
+        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
         profileButton.setText("Profile");
         profileButton.setBorder(null);
         profileButton.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +245,7 @@ public class UserNavBar extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
         );
 
         pack();
@@ -302,20 +300,23 @@ public class UserNavBar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserNavBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserNavbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserNavBar().setVisible(true);
+                new UserNavbar().setVisible(true);
             }
         });
     }
