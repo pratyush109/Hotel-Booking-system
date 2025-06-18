@@ -13,14 +13,15 @@ public class InvoiceModel {
     private int booking_id;   
     private int invoice_id;
     private String invoice_date;    
-    private int tax;
-    private int total_amount;
+    private double tax;
+    private double total_amount;
     private String status;
     private String payment_method;
     private int room_id;     
     private String checkInDate;    
     private String checkOutDate;
     private int room_price;
+    private double serviceCharge;
     
     
     public InvoiceModel() {}
@@ -28,11 +29,10 @@ public class InvoiceModel {
     
     
 
-    public InvoiceModel(int booking_id, int invoice_id, String invoice_date, int tax, int total_amount,
+    public InvoiceModel(int booking_id, String invoice_date, double tax, double serviceCharge ,double total_amount,
                     String status, String payment_method, int room_id, String checkInDate,
                     String checkOutDate, int room_price) {
     this.booking_id = booking_id;
-    this.invoice_id = invoice_id;
     this.invoice_date = invoice_date;
     this.tax = tax;
     this.total_amount = total_amount;
@@ -42,6 +42,7 @@ public class InvoiceModel {
     this.checkInDate = checkInDate;
     this.checkOutDate = checkOutDate;
     this.room_price = room_price;
+    this.serviceCharge = serviceCharge;
 }
     
     //getters and setters
@@ -77,20 +78,20 @@ public class InvoiceModel {
         //getter and setter for Tax
 
 
-    public int getTax() {
+    public double getTax() {
         return tax;
     }
 
-    public void setTax(int tax) {
+    public void setTax(double tax) {
         this.tax = tax;
     }
         //getter and setter for total_amount
 
-    public int getTotalAmount() {
+    public double getTotalAmount() {
         return total_amount;
     }
 
-    public void setTotalAmount(int total_amount) {
+    public void setTotalAmount(double total_amount) {
         this.total_amount = total_amount;
     }
     //getter and setter for Status
@@ -147,6 +148,16 @@ public class InvoiceModel {
     public void setRoomPrice(int room_price) {
         this.room_price = room_price;
     }
+    
+    //getter and setter for serviceCharge
+     public double getServiceCharge() {
+        return serviceCharge;
+    }
+
+    public void setServiceCharge(double serviceCharge) {
+        this.serviceCharge = serviceCharge;
+    }
+
 
     
  

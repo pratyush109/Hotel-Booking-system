@@ -29,9 +29,17 @@ public class HotelBookingManagement {
         }
        
         
-        UserLogin loginform = new UserLogin();
-        LoginController logcontroller = new LoginController(loginform);
-        logcontroller.open();
+//        UserLogin loginform = new UserLogin();
+//        LoginController logcontroller = new LoginController(loginform);
+//        logcontroller.open();
+
+//        AdminLogin adminLogin = new AdminLogin();
+//        AdminLoginController adminLoginController = new AdminLoginController(adminLogin);
+//        adminLoginController.open();
+
+            
+            WelcomeScreen welcomeScreen = new WelcomeScreen();
+            welcomeScreen.setVisible(true);
         
        
       

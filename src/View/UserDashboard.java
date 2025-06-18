@@ -11,7 +11,6 @@ import Model.BookingModel;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.List;
-import java.util.ArrayList;
 
 
 /**
@@ -26,6 +25,8 @@ public class UserDashboard extends javax.swing.JFrame {
  ViewBookingController viewBookingController;
  ExpandedMyBookingPanel expandedMyBookingPanel;
   private List<BookingModel> bookings;
+  
+
 
 
     /**
@@ -45,6 +46,7 @@ public class UserDashboard extends javax.swing.JFrame {
         
         myProfile = new MyProfilePanel();
         myProfile.setVisible(false);
+        
         
         expandedMyBookingPanel =  new ExpandedMyBookingPanel();
         expandedMyBookingPanel.setVisible(false);
@@ -464,6 +466,10 @@ public void showExpandedBookingPanel(BookingModel bookingData) {
     CardLayout c5 = (CardLayout) contentPanel.getLayout();
     c5.show(contentPanel, "expandedMyBookingPanel");
 }
+public ExpandedMyBookingPanel getExpandedMyBookingPanel() {
+    return expandedMyBookingPanel;
+}
+
 
 
 

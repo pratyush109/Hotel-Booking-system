@@ -91,7 +91,7 @@ public boolean updateUserProfile(Userdata user, int userId) {
        
 
         int rowsAffected = pstmt.executeUpdate();
-        return rowsAffected > 0; //
+        return rowsAffected > 0; 
 
     } catch (SQLException ex) {
         java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);

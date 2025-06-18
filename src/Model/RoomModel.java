@@ -13,12 +13,20 @@ public class RoomModel {
     private int room_id;
     private String roomType;
     private int no_of_guest;
+    private int price;
+    
+    public RoomModel(String roomType, int no_of_guest, int price) {
+       this.roomType = roomType ;
+       this.no_of_guest = no_of_guest ;
+       this.price = price;
+    }
 
     
-    public RoomModel(int room_id, String roomType, int no_of_guest) {
+    public RoomModel(int room_id, String roomType, int no_of_guest, int price) {
        this.roomType = roomType ;
        this.no_of_guest = no_of_guest ;
        this.room_id = room_id;
+       this.price = price;
     }
     
    //getter and setter for room type
@@ -43,6 +51,14 @@ public class RoomModel {
     }
     public void setRoomId(int room_id) {
         this.room_id = room_id;
+    }
+    
+    //getter and setter for price
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
     }
     
  

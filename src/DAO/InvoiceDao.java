@@ -18,6 +18,17 @@ import java.util.logging.Logger;
 public class InvoiceDao {
     MySqlConnection connection = new MySqlConnection();
     
+   
+    public void addInvoice(InvoiceModel invoiceModel) {
+        Connection conn = connection.openConnection();
+        String sql = "INSERT INTO Invoice(booking_id,room_id, invoice_date, tax, room_charges, service_charges, total_amount, payment_method) VALUES(?,?,?,?,?,?,?,?)";
+        
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, invoiceModel.) 
+            
+        }
+        
+    }
     public InvoiceModel getInvoiceDetails(int invoiceId) {
         
         Connection conn = connection.openConnection();

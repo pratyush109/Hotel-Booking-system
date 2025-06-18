@@ -345,7 +345,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
     String checkIn = checkInDate_field.getText();    
     String checkOut = checkOutDate_field.getText();
 
-    List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut);
+    List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut, null);
     
 if (availableRooms.isEmpty()) {
         JOptionPane.showMessageDialog(null, "No rooms available for the selected criteria.");

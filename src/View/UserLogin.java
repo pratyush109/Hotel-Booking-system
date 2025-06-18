@@ -6,10 +6,9 @@ package View;
 
 import Controller.ForgotPasswordController;
 import Controller.RegistrationController;
-import java.awt.Image;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+
+
 
 /**
  *
@@ -17,8 +16,6 @@ import javax.swing.JOptionPane;
  */
 public class UserLogin extends javax.swing.JFrame {
 
-String admin_username = "admin";
-String admin_password = "admin";
 
     /**
      * Creates new form AdminLogin
@@ -94,7 +91,7 @@ String admin_password = "admin";
                 .addComponent(jLabel2)
                 .addGap(82, 82, 82)
                 .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         getContentPane().add(logo_panel, java.awt.BorderLayout.LINE_START);
@@ -207,7 +204,7 @@ String admin_password = "admin";
                             .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(login_contentsLayout.createSequentialGroup()
-                        .addGap(272, 272, 272)
+                        .addGap(283, 283, 283)
                         .addComponent(login_button, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(login_contentsLayout.createSequentialGroup()
@@ -225,7 +222,7 @@ String admin_password = "admin";
                     .addGroup(login_contentsLayout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(returnToUserLogin_textlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         login_contentsLayout.setVerticalGroup(
             login_contentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,7 +245,7 @@ String admin_password = "admin";
                     .addComponent(showPassword_button))
                 .addGap(42, 42, 42)
                 .addComponent(login_button, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(returnToUserLogin_textlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );

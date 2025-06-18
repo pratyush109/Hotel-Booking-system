@@ -21,8 +21,27 @@ public class BookingModel {
     private String checkInDate;
     private String checkOutDate;
     private String status;
+    private String customer_name;
     
     public BookingModel() {} // to create an empty object (used in getBookingInfo in BookingDao)
+    
+    // for table in admin view booking panel
+    public BookingModel(String customer_name, int roomId, String checkInDate, String checkOutDate, String status) {
+        this.customer_name = customer_name;
+        this.roomId = roomId;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+        this.status = status;
+    }
+   
+    
+    public BookingModel(int guestCount, String roomType, String checkInDate, String checkOutDate) {
+    this.guestCount = guestCount;
+    this.roomType = roomType;
+    this.checkInDate = checkInDate;
+    this.checkOutDate = checkOutDate;
+    } //this constructor is used it updateBooking controller
+
      
     //this constructor is for booking room where booking id is not necessary to insert 
     public BookingModel(int roomId, String roomType, int guestCount, String checkInDate, String checkOutDate) {
@@ -121,6 +140,14 @@ public class BookingModel {
     }
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+    // getter and setter for customer_name
+    public String getCustomerName() {
+        return customer_name;
+    }
+    public void setCustomerName(String customer_name) {
+        this.customer_name = customer_name;
     }
 
 

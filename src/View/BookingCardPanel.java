@@ -14,6 +14,7 @@ import Controller.ViewExpandedBookingController;
 public class BookingCardPanel extends javax.swing.JPanel {
     
     private ViewExpandedBookingController viewDetailController;
+    
   
 
 

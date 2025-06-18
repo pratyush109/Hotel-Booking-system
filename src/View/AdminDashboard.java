@@ -4,14 +4,11 @@
  */
 package View;
 
-import Controller.BookingController;
-import Controller.ViewBookingController;
-import Controller.ViewExpandedBookingController;
-import Model.BookingModel;
+
+import Controller.AdminLoginController;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.List;
-import java.util.ArrayList;
+
 
 
 /**
@@ -19,14 +16,10 @@ import java.util.ArrayList;
  * @author Dell
  */
 public class AdminDashboard extends javax.swing.JFrame {
- DashboardPanel dashboardPanel;
- MyBookingPanel bookingPanel;
- BookRoomPanel roomPanel;
- MyProfilePanel myProfile;
- ViewBookingController viewBookingController;
- ExpandedMyBookingPanel expandedMyBookingPanel;
-  private List<BookingModel> bookings;
-
+    
+private AdminViewBookingPanel adminViewBooking;
+private AddRoom addRoom;
+private AdminLoginController adminLoginController;
 
     /**
      * Creates new form UserNavBar
@@ -37,32 +30,20 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         menuLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         
-        dashboardPanel = new DashboardPanel();
-        dashboardPanel.setVisible(false);
+        adminViewBooking = new AdminViewBookingPanel();
+        adminViewBooking.setVisible(false);
         
-        roomPanel = new BookRoomPanel();
-        roomPanel.setVisible(false);
-        
-        myProfile = new MyProfilePanel();
-        myProfile.setVisible(false);
-        
-        expandedMyBookingPanel =  new ExpandedMyBookingPanel();
-        expandedMyBookingPanel.setVisible(false);
+        addRoom = new AddRoom();
+        addRoom.setVisible(false);
         
         
-        bookingPanel = new MyBookingPanel();
-        bookingPanel.setVisible(false);
-      
-      
-
+   
+        
         
        contentPanel.setLayout(new CardLayout());
-       contentPanel.add(dashboardPanel, "dashboardPanel");
-       contentPanel.add(roomPanel, "bookRoom");
-       contentPanel.add(myProfile, "profile");
-       contentPanel.add(bookingPanel, "bookingPanel");
-       contentPanel.add(expandedMyBookingPanel, "expandedMyBookingPanel");
-        
+       contentPanel.add(adminViewBooking, "adminViewBooking");
+       contentPanel.add(addRoom, "addRoom");
+       
         this.pack();
         this.setLocationRelativeTo(null);
  
@@ -94,7 +75,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         menuLabel = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         bookroomButton = new javax.swing.JButton();
-        mybookingButton = new javax.swing.JButton();
         footer = new javax.swing.JPanel();
         relax_label = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -149,7 +129,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("User Dashboard");
+        setTitle("Admin Dashboard");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1200, 650));
@@ -202,19 +182,6 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
-        mybookingButton.setBackground(new java.awt.Color(72, 99, 127));
-        mybookingButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        mybookingButton.setForeground(new java.awt.Color(255, 255, 255));
-        mybookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotel (3).png"))); // NOI18N
-        mybookingButton.setText("My Booking");
-        mybookingButton.setBorder(null);
-        mybookingButton.setFocusable(false);
-        mybookingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mybookingButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
@@ -227,7 +194,6 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addComponent(viewBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(bookroomButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(mybookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuPanelLayout.setVerticalGroup(
@@ -239,9 +205,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addComponent(viewBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(bookroomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(mybookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(138, 138, 138)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 159, Short.MAX_VALUE))
         );
@@ -287,26 +251,18 @@ public class AdminDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
      
         CardLayout c1 = (CardLayout) contentPanel.getLayout();
-        c1.show(contentPanel, "dashboardPanel");
+        c1.show(contentPanel, "adminViewBooking");
         
     }//GEN-LAST:event_viewBookingButtonActionPerformed
-
-    private void mybookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mybookingButtonActionPerformed
-        // TODO add your handling code here:
-       CardLayout c2 = (CardLayout) contentPanel.getLayout();
-        c2.show(contentPanel, "bookingPanel");
-        
-        
-            
-       
-    }//GEN-LAST:event_mybookingButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
 
          this.dispose(); 
-        UserLogin userLogin = new UserLogin();
-        userLogin.setVisible(true);
+        AdminLogin adminLogin = new AdminLogin();
+        adminLogin.setVisible(true);
+        adminLoginController = new AdminLoginController(adminLogin);
+        adminLoginController.open();
 
 
 
@@ -338,10 +294,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void bookroomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookroomButtonActionPerformed
         // TODO add your handling code here:
-        CardLayout c4 = (CardLayout) contentPanel.getLayout();
-        c4.show(contentPanel, "bookRoom");
-        
-
+   
+        CardLayout c2 = (CardLayout) contentPanel.getLayout();
+        c2.show(contentPanel, "addRoom");
       
      
     }//GEN-LAST:event_bookroomButtonActionPerformed
@@ -405,17 +360,10 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JButton mybookingButton;
     private javax.swing.JLabel relax_label;
     private javax.swing.JButton viewBookingButton;
     // End of variables declaration//GEN-END:variables
-//public void showExpandedBookingPanel() {
-//   
-//
-//     CardLayout c5 = (CardLayout) contentPanel.getLayout();
-//        c5.show(contentPanel, "expandedMyBookingPanel");
-//              
-//}
+
 
 
 
