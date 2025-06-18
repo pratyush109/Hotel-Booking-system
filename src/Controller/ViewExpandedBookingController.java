@@ -32,6 +32,8 @@ public class ViewExpandedBookingController {
         
         if(detailedBooking != null) {
             userDashboard.showExpandedBookingPanel(detailedBooking);
+            EditBookingController editBookingController = new EditBookingController(userDashboard.getExpandedMyBookingPanel(), detailedBooking);
+             editBookingController.open(); 
         } else {
             JOptionPane.showMessageDialog( userDashboard, "Unable to load booking details");
         }
