@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+
+        <group>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/email.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/Emailverificationdata.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/Main.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/RoomModel.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Emailverification.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/controller/login.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/login.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Bookingconfirmation.java</file>
+        </group>
+
         <group/>
+
     </open-files>
 </project-private>
