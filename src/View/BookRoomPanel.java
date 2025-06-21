@@ -64,6 +64,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
         roomType_field.setEditable(false);
         roomType_field.setBackground(new java.awt.Color(217, 217, 217));
 
+
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         roomType_label.setBackground(new java.awt.Color(0, 0, 0));
@@ -76,6 +77,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
                 roomType_fieldActionPerformed(evt);
             }
         });
+
 
         roomType_comboBox.setBackground(new java.awt.Color(192, 180, 180));
 
@@ -90,8 +92,10 @@ public class BookRoomPanel extends javax.swing.JPanel {
         no_of_guest_label.setText(" No Of Guest:");
 
 
+
         noOfGuest_field.setEditable(false);
         noOfGuest_field.setBackground(new java.awt.Color(217, 217, 217));
+
 
         noOfGuest_field.setText("1");
         noOfGuest_field.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +118,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
 
         checkInDate_field.setBackground(new java.awt.Color(217, 217, 217));
 
+
         checkInDate_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkInDate_fieldActionPerformed(evt);
@@ -131,6 +136,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
 
 
         checkOutDate_field.setBackground(new java.awt.Color(217, 217, 217));
+
 
         checkOutDate_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +156,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
         roomType_label1.setText("Room number :");
 
         roomNumber_field.setEditable(false);
+
 
         roomNumber_field.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         roomNumber_field.setEnabled(false);
@@ -234,6 +241,9 @@ public class BookRoomPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sofaImage_label, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+
+                .addContainerGap(48, Short.MAX_VALUE))
+
 
                 .addContainerGap(30, Short.MAX_VALUE))
 
@@ -366,9 +376,13 @@ public class BookRoomPanel extends javax.swing.JPanel {
     String checkOut = checkOutDate_field.getText();
 
 
+    List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut, null);
+
+
     List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut);
 
     List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut, null);
+
 
     
 if (availableRooms.isEmpty()) {
