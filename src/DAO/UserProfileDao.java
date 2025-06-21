@@ -3,10 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
+
+
+
 import Database.*;
 import Model.Userdata;
 import Session.Session;
 import View.MyProfilePanel;
+
+
+
+import Database.database.*;
+import Database.mysqlconnection;
+import Model.Userdata;
+import Session.Session;
+import View.EditProfile;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
@@ -14,12 +26,26 @@ import java.sql.ResultSet;
 
 
 /**
+
  *
+
+ 
+
  * @author Dell
  */
 public class UserProfileDao {
     
    MySqlConnection mysql =new MySqlConnection();
+
+
+
+ * @author renisa
+ */
+public class UserProfileDao {
+    
+   mysqlconnection mysql =new mysqlconnection();
+
+
    
   int userId = Session.getSession().getLoggedInUserId();
    
@@ -49,7 +75,15 @@ public Userdata getUserProfile(int userId) {
 
               
        }catch(SQLException ex){
+
            java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+
+           java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+           java.util.logging.Logger.getLogger(EditProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+
        }finally{
            mysql.closeConnection(conn);
        }
@@ -69,7 +103,14 @@ public boolean deleteUserProfile(int userId) {
         return rowsAffected > 0; 
 
     } catch (SQLException ex) {
+
+
+
         java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        java.util.logging.Logger.getLogger(EditProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+
     } finally {
         mysql.closeConnection(conn);
     }
@@ -91,10 +132,21 @@ public boolean updateUserProfile(Userdata user, int userId) {
        
 
         int rowsAffected = pstmt.executeUpdate();
-        return rowsAffected > 0; 
+
+        return rowsAffected > 0; //
 
     } catch (SQLException ex) {
         java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        return rowsAffected > 0; 
+
+    } catch (SQLException ex) {
+
+        java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        java.util.logging.Logger.getLogger(EditProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+
     } finally {
         mysql.closeConnection(conn);
     }
