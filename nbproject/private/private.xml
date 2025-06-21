@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
 
         <group>
+
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/UserProfileDao.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/MyProfilePanel.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/UserProfileController.java</file>
@@ -11,7 +12,19 @@
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/MyBookingPanel.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Register.java</file>
         </group>
-=======
+
+
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/email.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/Emailverificationdata.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/Main.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/RoomModel.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Emailverification.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/controller/login.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/login.java</file>
+            <file>file:/C:/Users/acer/OneDrive/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Bookingconfirmation.java</file>
+        </group>
+
+
         <group/>
 
     </open-files>
