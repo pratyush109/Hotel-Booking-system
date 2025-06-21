@@ -54,6 +54,17 @@ public class BookRoomPanel extends javax.swing.JPanel {
         selectRoom = new javax.swing.JButton();
         bookNowButton = new javax.swing.JButton();
 
+
+        jPanel1.setBackground(new java.awt.Color(239, 239, 239));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        roomType_label.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        roomType_label.setText("Room Type:");
+
+        roomType_field.setEditable(false);
+        roomType_field.setBackground(new java.awt.Color(217, 217, 217));
+
+
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         roomType_label.setBackground(new java.awt.Color(0, 0, 0));
@@ -67,6 +78,9 @@ public class BookRoomPanel extends javax.swing.JPanel {
             }
         });
 
+
+        roomType_comboBox.setBackground(new java.awt.Color(192, 180, 180));
+
         roomType_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard", "Deluxe", "Super Deluxe" }));
         roomType_comboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +90,12 @@ public class BookRoomPanel extends javax.swing.JPanel {
 
         no_of_guest_label.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         no_of_guest_label.setText(" No Of Guest:");
+
+
+
+        noOfGuest_field.setEditable(false);
+        noOfGuest_field.setBackground(new java.awt.Color(217, 217, 217));
+
 
         noOfGuest_field.setText("1");
         noOfGuest_field.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +115,10 @@ public class BookRoomPanel extends javax.swing.JPanel {
         checkInDate_label.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         checkInDate_label.setText("Check-In-Date:");
 
+
+        checkInDate_field.setBackground(new java.awt.Color(217, 217, 217));
+
+
         checkInDate_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkInDate_fieldActionPerformed(evt);
@@ -109,6 +133,10 @@ public class BookRoomPanel extends javax.swing.JPanel {
 
         checkOutDate_label.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         checkOutDate_label.setText("Check-Out-Date:");
+
+
+        checkOutDate_field.setBackground(new java.awt.Color(217, 217, 217));
+
 
         checkOutDate_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +154,9 @@ public class BookRoomPanel extends javax.swing.JPanel {
 
         roomType_label1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         roomType_label1.setText("Room number :");
+
+        roomNumber_field.setEditable(false);
+
 
         roomNumber_field.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         roomNumber_field.setEnabled(false);
@@ -210,7 +241,14 @@ public class BookRoomPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sofaImage_label, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+
                 .addContainerGap(48, Short.MAX_VALUE))
+
+
+                .addContainerGap(30, Short.MAX_VALUE))
+
+                .addContainerGap(48, Short.MAX_VALUE))
+
         );
 
         bookRoom_Label.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -337,7 +375,15 @@ public class BookRoomPanel extends javax.swing.JPanel {
     String checkIn = checkInDate_field.getText();    
     String checkOut = checkOutDate_field.getText();
 
+
     List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut, null);
+
+
+    List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut);
+
+    List<Integer> availableRooms = bookingDao.getAvailableRooms(roomType, guestCount, checkIn, checkOut, null);
+
+
     
 if (availableRooms.isEmpty()) {
         JOptionPane.showMessageDialog(null, "No rooms available for the selected criteria.");
