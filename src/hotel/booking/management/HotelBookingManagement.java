@@ -7,7 +7,7 @@ package hotel.booking.management;
 
 
 
-import Controller.PaymentController;
+
 import Database.Database;
 import Database.MySqlConnection;
 import View.*;
@@ -25,14 +25,7 @@ public class HotelBookingManagement {
        
        
         
-        PaymentInput payment = new PaymentInput();
-       
-        payment.open();
         
-       
-        
-
-      
       
     }
     
