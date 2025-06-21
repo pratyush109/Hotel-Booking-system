@@ -6,6 +6,7 @@ package Model;
 
 /**
  *
+
  * @author acer
  */
 
@@ -45,5 +46,29 @@ public class Main {
     }
 
 }
+
+ * @author renisa
+ */
+public class Main {
+    public static void main(String[] args) {
+        Registrationpagedata reg = new Registrationpagedata(
+            "Alice Johnson",
+            "alice@example.com",
+            "alicej",
+            "mypassword",
+            "mypassword"
+        );
  
+        
+        if (!reg.getPassword().equals(reg.getConfirmPassword())) {
+            System.out.println("Error: Passwords do not match!");
+        } else {
+            System.out.println("Registration Successful!");
+            System.out.println("Full Name: " + reg.getFullName());
+            System.out.println("Email Address: " + reg.getEmailAddress());
+            System.out.println("Username: " + reg.getUsername());
+        }
+    }
+}
+
 

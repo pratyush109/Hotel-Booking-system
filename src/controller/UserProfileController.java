@@ -7,12 +7,17 @@ package controller;
 import DAO.UserProfileDao;
 import Model.Userdata;
 import Session.Session;
+
 import View.MyProfilePanel;
+
+import View.EditProfile;
+
 import javax.swing.JOptionPane;
 
 
 /**
  *
+
  * @author Dell
  */
 public class UserProfileController {
@@ -21,6 +26,16 @@ public class UserProfileController {
     
  
     public UserProfileController(MyProfilePanel profilePanel) {
+
+ * @author renisa
+ */
+public class UserProfileController {
+    private final UserProfileDao userProfileDao;
+    private final EditProfile profilePanel;
+    
+ 
+    public UserProfileController(EditProfile profilePanel) {
+
         this.profilePanel = profilePanel;
         this.userProfileDao = new UserProfileDao();
         

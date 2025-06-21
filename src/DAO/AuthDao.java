@@ -4,6 +4,7 @@
  */
 package DAO;
 
+
 import Database.MySqlConnection;
 import Model.AdminModel;
 import Model.Userdata;
@@ -14,11 +15,16 @@ import java.util.logging.Logger;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+import Model.Registrationpagedata;
+import java.sql.*;
+
+
 /**
  *
  * @author Dell
  */
 public class AuthDao {
+
     MySqlConnection connection = new MySqlConnection();
     
     public void register(Userdata user) {
@@ -165,3 +171,34 @@ public class AuthDao {
 }
     
     
+
+    
+    private Connection conn;
+    
+    public AuthDao(Connection conn) {
+        this.conn = conn;
+    }
+    
+    public boolean register(Registrationpagedata user) {
+        try {
+            String query = "INSERT INTO Users (fullname, email, username, password, security_answer) VALUES(?,?,?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, user.getFullName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getUsername());
+            stmt.setString(4, user.getPassword());
+            stmt.setString(5, user.getSecurityAnswer());
+            
+            return stmt.executeUpdate() > 0;
+               
+        } 
+        catch(SQLException e) { 
+            System.out.println(e);
+            return false;
+        }
+        
+        
+    }
+    
+}
+
