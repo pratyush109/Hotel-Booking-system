@@ -4,10 +4,14 @@
  */
 package DAO;
 
+
+
 import Database.*;
 import Model.Userdata;
 import Session.Session;
 import View.MyProfilePanel;
+
+
 
 import Database.database.*;
 import Database.mysqlconnection;
@@ -22,18 +26,25 @@ import java.sql.ResultSet;
 
 
 /**
+
+ *
+
  
+
  * @author Dell
  */
 public class UserProfileDao {
     
    MySqlConnection mysql =new MySqlConnection();
 
+
+
  * @author renisa
  */
 public class UserProfileDao {
     
    mysqlconnection mysql =new mysqlconnection();
+
 
    
   int userId = Session.getSession().getLoggedInUserId();
@@ -67,7 +78,11 @@ public Userdata getUserProfile(int userId) {
 
            java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
+
+           java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
            java.util.logging.Logger.getLogger(EditProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
 
        }finally{
            mysql.closeConnection(conn);
@@ -89,9 +104,12 @@ public boolean deleteUserProfile(int userId) {
 
     } catch (SQLException ex) {
 
+
+
         java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         java.util.logging.Logger.getLogger(EditProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
 
     } finally {
         mysql.closeConnection(conn);
@@ -114,6 +132,12 @@ public boolean updateUserProfile(Userdata user, int userId) {
        
 
         int rowsAffected = pstmt.executeUpdate();
+
+        return rowsAffected > 0; //
+
+    } catch (SQLException ex) {
+        java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         return rowsAffected > 0; 
 
     } catch (SQLException ex) {
@@ -121,6 +145,7 @@ public boolean updateUserProfile(Userdata user, int userId) {
         java.util.logging.Logger.getLogger(MyProfilePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         java.util.logging.Logger.getLogger(EditProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
 
     } finally {
         mysql.closeConnection(conn);

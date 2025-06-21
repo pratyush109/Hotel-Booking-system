@@ -2,22 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller;
+package Controller;
 
 import DAO.UserProfileDao;
 import Model.Userdata;
 import Session.Session;
-
 import View.MyProfilePanel;
-
-import View.EditProfile;
-
 import javax.swing.JOptionPane;
 
 
 /**
  *
-
  * @author Dell
  */
 public class UserProfileController {
@@ -26,16 +21,6 @@ public class UserProfileController {
     
  
     public UserProfileController(MyProfilePanel profilePanel) {
-
- * @author renisa
- */
-public class UserProfileController {
-    private final UserProfileDao userProfileDao;
-    private final EditProfile profilePanel;
-    
- 
-    public UserProfileController(EditProfile profilePanel) {
-
         this.profilePanel = profilePanel;
         this.userProfileDao = new UserProfileDao();
         
