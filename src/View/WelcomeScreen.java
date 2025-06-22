@@ -7,6 +7,10 @@ package View;
 import Controller.AdminLoginController;
 import Controller.LoginController;
 import Controller.RegistrationController;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 /**
  *
@@ -20,6 +24,22 @@ public class WelcomeScreen extends javax.swing.JFrame {
     public WelcomeScreen() {
         initComponents();
         this.setLocationRelativeTo(null);
+        darkModeToggle.addActionListener(e -> {
+    boolean darkMode = darkModeToggle.isSelected();
+    try {
+        if (darkMode) {
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } else {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        }
+
+        // Update the UI
+        SwingUtilities.updateComponentTreeUI(this);
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+});
+
     }
 
     /**
@@ -32,7 +52,9 @@ public class WelcomeScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        darkModeToggle = new javax.swing.JToggleButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -45,18 +67,34 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(48, 47, 47));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo 2.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(516, 516, 516)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        darkModeToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mode.png"))); // NOI18N
+        darkModeToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                darkModeToggleActionPerformed(evt);
+            }
+        });
+        jPanel3.add(darkModeToggle, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 20, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(31, 111, 235));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,7 +133,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 150, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/welcomeScreen.png"))); // NOI18N
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1286, 430));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, -70, 1320, 490));
 
         jPanel4.setBackground(new java.awt.Color(48, 47, 47));
 
@@ -103,7 +141,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGap(0, 1310, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +165,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 562, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(525, 525, 525)
@@ -163,6 +201,10 @@ public class WelcomeScreen extends javax.swing.JFrame {
         this.dispose();
       
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void darkModeToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darkModeToggleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_darkModeToggleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,9 +242,11 @@ public class WelcomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton darkModeToggle;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

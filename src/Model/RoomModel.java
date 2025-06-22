@@ -14,6 +14,15 @@ public class RoomModel {
     private String roomType;
     private int no_of_guest;
     private int price;
+      private String imagePath;
+    
+    public RoomModel(int room_id, String roomType, int no_of_guest, int price, String imagePath) {
+       this.roomType = roomType ;
+       this.no_of_guest = no_of_guest ;
+       this.room_id = room_id;
+       this.price = price;
+       this.imagePath = imagePath;
+    }
     
     public RoomModel(String roomType, int no_of_guest, int price) {
        this.roomType = roomType ;
@@ -61,6 +70,13 @@ public class RoomModel {
         this.price = price;
     }
     
+    //getter and setter for image path
+    public String getImagePath() {
+     return imagePath;
+    }
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
  
  
 }

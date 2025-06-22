@@ -18,16 +18,16 @@ import java.util.Date;
  *
  * @author Dell
  */
-public class BookingSearchController {
+public class SearchBookingController {
         
     private BookingDao bookingDao = new BookingDao();
     private AdminViewBookingPanel adminViewBookingPanel;
     
-    public BookingSearchController(AdminViewBookingPanel adminViewBookingPanel) {
+    public SearchBookingController(AdminViewBookingPanel adminViewBookingPanel) {
         
         this.adminViewBookingPanel = adminViewBookingPanel;
         
-        adminViewBookingPanel.addSearchButton(e -> new SearchButton());
+        adminViewBookingPanel.addSearchButton(new SearchButton());
         
     }
     
@@ -36,13 +36,21 @@ public class BookingSearchController {
         @Override
         public void actionPerformed(ActionEvent e) {
             
-            System.out.println("clicked");
+            System.out.println("Clicked");
+            
             String customerName = adminViewBookingPanel.getSearchField().getText().trim();
             String roomType = adminViewBookingPanel.getRoomTypeComboBox().getSelectedItem().toString().trim();
             
             String checkIn = getFormattedDate(adminViewBookingPanel.getCheckInChooser());
             String checkOut = getFormattedDate(adminViewBookingPanel.getCheckOutChooser());
             
+            
+            roomType = adminViewBookingPanel.getRoomTypeComboBox().getSelectedItem().toString().trim();
+            if (roomType.equals("All")) {
+            roomType = null;
+}
+
+
             List<BookingModel> bookings = bookingDao.searchBookingsWithFilters(customerName, roomType, checkIn, checkOut);
             
             adminViewBookingPanel.displayBookings(bookings);

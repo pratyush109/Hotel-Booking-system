@@ -4,12 +4,28 @@
  */
 package View;
 
+import Model.InvoiceModel;
+
 /**
  *
  * @author Dell
  */
 public class Invoice extends javax.swing.JFrame {
 
+      public Invoice(InvoiceModel invoiceModel) {
+    initComponents(); 
+    
+    setBookingId(invoiceModel.getBookingId());
+    setRoomId(invoiceModel.getRoomId());
+    setCheckInDate(invoiceModel.getCheckInDate());
+    setCheckOutDate(invoiceModel.getCheckOutDate());
+    setInvoiceDate(invoiceModel.getInvoiceDate());
+
+    jTable2.setValueAt(invoiceModel.getRoomPrice(), 0, 0);
+    jTable2.setValueAt(invoiceModel.getServiceCharge(), 0, 1);
+    jTable2.setValueAt(invoiceModel.getTax(), 0, 2);
+    jTable2.setValueAt(invoiceModel.getTotalAmount(), 0, 3);
+}
     /**
      * Creates new form Invoice
      */
@@ -230,7 +246,7 @@ public class Invoice extends javax.swing.JFrame {
     public String getInvoiceDate() {
         return invoiceDateLabel.getText();
     }
-    public void setBookingId(String invoiceDate) {
+    public void setInvoiceDate(String invoiceDate) {
         this.invoiceDateLabel.setText(invoiceDate);
     }
     //getter and setter for roomId

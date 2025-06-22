@@ -4,10 +4,12 @@
  */
 package hotel.booking.management;
 
-import Controller.*;
 import Database.Database;
 import Database.MySqlConnection;
 import View.*;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 /**
  *
@@ -18,32 +20,24 @@ public class HotelBookingManagement {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-                Database db = new MySqlConnection();
-        if(db.openConnection() !=null) {
-            System.out.println("Database connection successfull");
-        } 
-        else {
-            System.out.println("Database connection failed");
-        }
+   public static void main(String[] args) {
        
-        
-//        UserLogin loginform = new UserLogin();
-//        LoginController logcontroller = new LoginController(loginform);
-//        logcontroller.open();
-
-//        AdminLogin adminLogin = new AdminLogin();
-//        AdminLoginController adminLoginController = new AdminLoginController(adminLogin);
-//        adminLoginController.open();
-
-            
-            WelcomeScreen welcomeScreen = new WelcomeScreen();
-            welcomeScreen.setVisible(true);
-        
-       
-      
-      
+    try {
+        UIManager.setLookAndFeel(new FlatLightLaf());
+    } catch (Exception ex) {
+        System.err.println("Failed to initialize dark theme.");
     }
-    
+
+    Database db = new MySqlConnection();
+    if (db.openConnection() != null) {
+        System.out.println("Database connection successful");
+    } else {
+        System.out.println("Database connection failed");
+    }
+
+    SwingUtilities.invokeLater(() -> {
+        WelcomeScreen welcomeScreen = new WelcomeScreen();
+        welcomeScreen.setVisible(true);
+        });
+    }
 }

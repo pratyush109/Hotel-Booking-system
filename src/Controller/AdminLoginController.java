@@ -56,7 +56,7 @@ public class AdminLoginController {
                 
                 BookingDao bookingDao = new BookingDao();
                 AdminViewBookingPanel view = new AdminViewBookingPanel();
-                BookingSearchController controller = new BookingSearchController(view);
+                SearchBookingController controller = new SearchBookingController(view);
                 view.setVisible(true);
 
             } else {

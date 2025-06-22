@@ -124,7 +124,6 @@ public class AdminLogin extends javax.swing.JFrame {
         usernameLabel.setForeground(new java.awt.Color(255, 255, 255));
         usernameLabel.setText("Admin ID");
 
-        usernameField.setBackground(new java.awt.Color(217, 217, 217));
         usernameField.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         usernameField.setText("admin ID");
         usernameField.setPreferredSize(new java.awt.Dimension(515, 130));
@@ -142,7 +141,6 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
-        passwordField.setBackground(new java.awt.Color(217, 217, 217));
         passwordField.setText("password");
         passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

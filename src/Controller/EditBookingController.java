@@ -37,6 +37,7 @@ public class EditBookingController {
         this.bookingModel = bookingModel;
 
         expandedMyBookingPanel.addEditBookingListener(new EditBookingListener());
+        expandedMyBookingPanel.addCancelBookingListener(new CancelBookingListener());
     }
     
     public void open() {
@@ -173,7 +174,6 @@ public class EditBookingController {
     originalRoomType = expandedMyBookingPanel.getRoomTypeComboBox().getSelectedItem().toString();
     originalGuestCount = Integer.parseInt(expandedMyBookingPanel.getGuestSpinner().getValue().toString());
     
-    // Handle null dates safely
     Date checkInDate = expandedMyBookingPanel.getCheckInDateCalendar().getDate();
     Date checkOutDate = expandedMyBookingPanel.getCheckOutDateCalendar().getDate();
     
@@ -237,7 +237,6 @@ public class EditBookingController {
             bookingModel.setCheckInDate(checkIn);
             bookingModel.setCheckOutDate(checkOut);
             
-            // Update price based on new room type
             double newPrice = getRoomPriceByType(roomType);
             bookingModel.setPrice((int) newPrice);
         }
@@ -246,4 +245,24 @@ public class EditBookingController {
             expandedMyBookingPanel.refreshDisplay(bookingModel);
         }
     }
+       class CancelBookingListener implements java.awt.event.ActionListener {
+    @Override
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+        int confirm = JOptionPane.showConfirmDialog(
+            expandedMyBookingPanel,
+            "Are you sure you want to cancel this booking?",
+            "Confirm Cancellation",
+            JOptionPane.YES_NO_OPTION
+        );
+        if (confirm == JOptionPane.YES_OPTION) {
+            boolean success = bookingDao.cancelBooking(bookingModel);
+            if (success) {
+                JOptionPane.showMessageDialog(expandedMyBookingPanel, "Booking cancelled successfully!");
+                expandedMyBookingPanel.refreshDisplay(bookingModel);
+            } else {
+                JOptionPane.showMessageDialog(expandedMyBookingPanel, "Failed to cancel booking.");
+            }
+        }
+    }
+}
 }

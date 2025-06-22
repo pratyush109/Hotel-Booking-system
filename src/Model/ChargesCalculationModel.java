@@ -33,6 +33,12 @@ public class ChargesCalculationModel {
     }
     return roomCharges * rate;
 }
+  
+  public static double calculateTax(double roomCharges, double serviceCharges) {
+    double taxRate = 0.18; 
+    double taxAmount = roomCharges + serviceCharges;
+    return taxAmount * taxRate;
+}
 
     
 }

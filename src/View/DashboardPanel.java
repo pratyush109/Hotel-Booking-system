@@ -4,6 +4,13 @@
  */
 package View;
 
+import Model.RoomModel;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.BorderFactory;
+import Database.*;
+import java.sql.*;
+
 /**
  *
  * @author Dell
@@ -15,6 +22,8 @@ public class DashboardPanel extends javax.swing.JPanel {
      */
     public DashboardPanel() {
         initComponents();
+        loadRoomsToDisplay(); 
+
     }
 
     /**
@@ -28,31 +37,40 @@ public class DashboardPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        roomContainerPanel = new javax.swing.JPanel();
+
+        setPreferredSize(new java.awt.Dimension(884, 564));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 36)); // NOI18N
         jLabel2.setText("Dashboard");
+
+        roomContainerPanel.setLayout(new java.awt.GridLayout(1, 0));
+        jScrollPane1.setViewportView(roomContainerPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(167, 167, 167)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(361, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(324, 324, 324))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -60,5 +78,52 @@ public class DashboardPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel roomContainerPanel;
     // End of variables declaration//GEN-END:variables
+
+private void loadRoomsToDisplay() {
+
+    roomContainerPanel.removeAll();
+    
+    List<RoomModel> rooms = getAllRoomsFromDatabase();
+
+    for (RoomModel room : rooms) {
+        RoomCard roomCard = new RoomCard();
+        roomCard.setRoomData(room);
+        roomCard.setBorder(BorderFactory.createRaisedBevelBorder());
+        roomContainerPanel.add(roomCard);
+    }
+    
+    roomContainerPanel.revalidate();
+    roomContainerPanel.repaint();
+}
+
+private List<RoomModel> getAllRoomsFromDatabase() {
+    
+    List<RoomModel> rooms = new ArrayList<>();
+    String query = "SELECT room_id, room_type, max_guests, price, image_path FROM rooms";
+      
+    MySqlConnection connection = new MySqlConnection();
+    Connection conn = connection.openConnection();
+    
+    try (PreparedStatement stmt = conn.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
+        
+        while (rs.next()) {
+            RoomModel room = new RoomModel(
+                rs.getInt("room_id"),
+                rs.getString("room_type"),
+                rs.getInt("price"),
+                rs.getInt("max_guests"),
+                rs.getString("image_path")
+            );
+            rooms.add(room);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error loading rooms: " + e.getMessage());
+    }
+    return rooms;
+}
 }

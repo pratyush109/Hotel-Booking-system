@@ -6,6 +6,7 @@ package View;
 
 
 import Controller.AdminLoginController;
+import Controller.SearchBookingController;
 import java.awt.CardLayout;
 import java.awt.Component;
 
@@ -44,6 +45,7 @@ private AdminLoginController adminLoginController;
        contentPanel.add(adminViewBooking, "adminViewBooking");
        contentPanel.add(addRoom, "addRoom");
        
+       
         this.pack();
         this.setLocationRelativeTo(null);
  
@@ -79,6 +81,7 @@ private AdminLoginController adminLoginController;
         relax_label = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         contentPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel7.setText("jLabel7");
 
@@ -207,7 +210,7 @@ private AdminLoginController adminLoginController;
                 .addComponent(bookroomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(138, 138, 138)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 159, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         footer.setBackground(new java.awt.Color(48, 47, 47));
@@ -224,6 +227,19 @@ private AdminLoginController adminLoginController;
         contentPanel.setBackground(new java.awt.Color(217, 217, 217));
         contentPanel.setLayout(new java.awt.CardLayout());
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1035, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+
+        contentPanel.add(jPanel1, "card2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,7 +248,7 @@ private AdminLoginController adminLoginController;
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE))
+                    .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -252,6 +268,9 @@ private AdminLoginController adminLoginController;
      
         CardLayout c1 = (CardLayout) contentPanel.getLayout();
         c1.show(contentPanel, "adminViewBooking");
+        
+        SearchBookingController searchBookingController = new SearchBookingController(adminViewBooking);
+
         
     }//GEN-LAST:event_viewBookingButtonActionPerformed
 
@@ -357,6 +376,7 @@ private AdminLoginController adminLoginController;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JPanel menuPanel;

@@ -240,9 +240,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="usernameField">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d9" green="d9" red="d9" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="12" style="0"/>
             </Property>
@@ -259,9 +256,6 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="passwordField">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d9" green="d9" red="d9" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="password"/>
           </Properties>
           <Events>

@@ -37,7 +37,6 @@ public class MyBookingPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         MainFlowPanel = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(217, 217, 217));
         setMaximumSize(new java.awt.Dimension(884, 545));
         setMinimumSize(new java.awt.Dimension(884, 545));
 
@@ -56,7 +55,7 @@ public class MyBookingPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(350, 350, 350)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

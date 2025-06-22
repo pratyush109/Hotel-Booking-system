@@ -24,8 +24,22 @@ public class InvoiceDao {
         String sql = "INSERT INTO Invoice(booking_id,room_id, invoice_date, tax, room_charges, service_charges, total_amount, payment_method) VALUES(?,?,?,?,?,?,?,?)";
         
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, invoiceModel.) 
             
+            pstmt.setInt(1, invoiceModel.getBookingId());
+            pstmt.setInt(2, invoiceModel.getRoomId());
+            pstmt.setString(3, invoiceModel.getInvoiceDate());
+            pstmt.setDouble(4, invoiceModel.getTax());
+            pstmt.setDouble(5, invoiceModel.getRoomPrice());
+            pstmt.setDouble(6, invoiceModel.getServiceCharge());
+            pstmt.setDouble(7, invoiceModel.getTotalAmount());
+            pstmt.setString(8, invoiceModel.getPaymentMethod());
+            
+            pstmt.executeUpdate();
+
+        }  catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            connection.closeConnection(conn);
         }
         
     }
