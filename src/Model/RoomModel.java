@@ -15,28 +15,37 @@ public class RoomModel {
     private int no_of_guest;
     private int price;
       private String imagePath;
+      
+      // used in addRoom controller 
+    public RoomModel(String roomType, int no_of_guest, int price, String imagePath) {
+    this.roomType = roomType;
+    this.no_of_guest = no_of_guest;
+    this.price = price;
+    this.imagePath = imagePath;
+}
     
+    // used in dashboard , where room card is getting populated
     public RoomModel(int room_id, String roomType, int no_of_guest, int price, String imagePath) {
-       this.roomType = roomType ;
-       this.no_of_guest = no_of_guest ;
-       this.room_id = room_id;
-       this.price = price;
-       this.imagePath = imagePath;
+    this.roomType = roomType ;
+    this.no_of_guest = no_of_guest ;
+    this.room_id = room_id;
+    this.price = price;
+    this.imagePath = imagePath;
     }
     
-    public RoomModel(String roomType, int no_of_guest, int price) {
-       this.roomType = roomType ;
-       this.no_of_guest = no_of_guest ;
-       this.price = price;
-    }
-
-    
-    public RoomModel(int room_id, String roomType, int no_of_guest, int price) {
-       this.roomType = roomType ;
-       this.no_of_guest = no_of_guest ;
-       this.room_id = room_id;
-       this.price = price;
-    }
+//    public RoomModel(String roomType, int no_of_guest, int price) {
+//       this.roomType = roomType ;
+//       this.no_of_guest = no_of_guest ;
+//       this.price = price;
+//    }
+//
+//    
+//    public RoomModel(int room_id, String roomType, int no_of_guest, int price) {
+//       this.roomType = roomType ;
+//       this.no_of_guest = no_of_guest ;
+//       this.room_id = room_id;
+//       this.price = price;
+//    }
     
    //getter and setter for room type
     public String getRoomType() {
