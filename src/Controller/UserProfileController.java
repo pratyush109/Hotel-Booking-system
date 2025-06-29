@@ -74,6 +74,16 @@ public class UserProfileController {
         updatedUser.setfullName(fullname);
         updatedUser.setUsername(username);
         
+         if (email.isEmpty() || fullname.isEmpty() || username.isEmpty()) {
+        JOptionPane.showMessageDialog(profilePanel, "All fields are required.");
+        return;
+    }
+
+    if (fullname.matches(".*\\d.*")) {
+        JOptionPane.showMessageDialog(profilePanel, "Full name should not contain numbers.");
+        return;
+    }
+        
         int userId = Session.getSession().getLoggedInUserId();
         
         boolean success = userProfileDao.updateUserProfile(updatedUser, userId);
