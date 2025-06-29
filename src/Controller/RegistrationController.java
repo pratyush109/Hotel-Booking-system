@@ -45,8 +45,20 @@ class AddUserListener implements ActionListener {
             String securityAnswer = register.getSecurityQuestion().getText();
             String username = register.getUsernameField().getText();
             
+             if (!password.equals(cpassword)) {
+                    JOptionPane.showMessageDialog(register, "Passwords do not match.");
+                    return;
+                }
+             if (fullname.matches(".*\\d.*")) {
+            JOptionPane.showMessageDialog(register, "Full name should not contain numbers.");
+            return;
+                }
+
+            
             Userdata user = new Userdata(fullname, email,username,password, securityAnswer);
             boolean check = userdao.checkUser(user);
+            
+             
 
            
             if (check) {

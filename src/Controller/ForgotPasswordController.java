@@ -40,6 +40,7 @@ class ForgotPasswordListener implements ActionListener {
             String email = forgotPasswordView.getEmail();
             String securityAnswer = forgotPasswordView.getSecurityAnswer();
             String newPassword = forgotPasswordView.getNewPassword();
+            
 
             boolean isUpdated = user.updatePasswordBySecurityAnswer(email, securityAnswer, newPassword);
 
