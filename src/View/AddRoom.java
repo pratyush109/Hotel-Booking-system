@@ -6,6 +6,13 @@ package View;
 
 import Controller.AddRoomController;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,10 +45,14 @@ public class AddRoom extends javax.swing.JPanel {
         noOfGuest_field = new javax.swing.JTextField();
         no_of_guest_label = new javax.swing.JLabel();
         noOfGuest_spinner = new javax.swing.JSpinner();
-        addButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         no_of_guest_label1 = new javax.swing.JLabel();
-        priceField = new javax.swing.JTextField();
+        txtImagePath = new javax.swing.JTextField();
+        priceField1 = new javax.swing.JTextField();
+        no_of_guest_label2 = new javax.swing.JLabel();
+        addButton = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        roomType_label1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(884, 547));
 
@@ -87,6 +98,31 @@ public class AddRoom extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotel_1.png"))); // NOI18N
+
+        no_of_guest_label1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        no_of_guest_label1.setText("Image");
+
+        txtImagePath.setEditable(false);
+        txtImagePath.setBackground(new java.awt.Color(217, 217, 217));
+        txtImagePath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtImagePathActionPerformed(evt);
+            }
+        });
+
+        priceField1.setEditable(false);
+        priceField1.setBackground(new java.awt.Color(217, 217, 217));
+        priceField1.setText("60");
+        priceField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceField1ActionPerformed(evt);
+            }
+        });
+
+        no_of_guest_label2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        no_of_guest_label2.setText("Price");
+
         addButton.setBackground(new java.awt.Color(72, 99, 127));
         addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("Add Room");
@@ -96,17 +132,10 @@ public class AddRoom extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotel_1.png"))); // NOI18N
-
-        no_of_guest_label1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        no_of_guest_label1.setText("Price");
-
-        priceField.setEditable(false);
-        priceField.setBackground(new java.awt.Color(217, 217, 217));
-        priceField.setText("60");
-        priceField.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButton1.setText("browse....");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceFieldActionPerformed(evt);
+                jToggleButton1ActionPerformed(evt);
             }
         });
 
@@ -116,28 +145,34 @@ public class AddRoom extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(204, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(326, 326, 326))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(326, 326, 326))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(no_of_guest_label, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(noOfGuest_field, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(32, 32, 32)
+                                    .addComponent(noOfGuest_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(roomType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(roomType_field, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(32, 32, 32)
+                                    .addComponent(roomType_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(priceField1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(no_of_guest_label2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(no_of_guest_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(140, 140, 140)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtImagePath, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1)
+                        .addGap(43, 43, 43)
                         .addComponent(addButton)
-                        .addGap(275, 275, 275))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(no_of_guest_label, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(noOfGuest_field, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(noOfGuest_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(roomType_label, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(roomType_field, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(roomType_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(no_of_guest_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(140, 140, 140))))
+                        .addGap(17, 17, 17))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,30 +191,45 @@ public class AddRoom extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(noOfGuest_field, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(noOfGuest_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
+                .addComponent(no_of_guest_label2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(priceField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(no_of_guest_label1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(addButton)
-                .addGap(28, 28, 28))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtImagePath, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addButton)
+                    .addComponent(jToggleButton1))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        roomType_label1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        roomType_label1.setText("Add Room");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(384, 384, 384)
+                        .addComponent(roomType_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(roomType_label1)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,11 +242,11 @@ public class AddRoom extends javax.swing.JPanel {
         String selectedRoomType = roomType_comboBox.getSelectedItem().toString();
         roomType_field.setText(selectedRoomType);
         if(selectedRoomType.equals("Standard")) {
-            priceField.setText("60");
+            priceField1.setText("60");
         } else if(selectedRoomType.equals("Deluxe")) {
-            priceField.setText("100");
+            priceField1.setText("100");
         } else if(selectedRoomType.equals("Super Deluxe")) {
-            priceField.setText("140");
+            priceField1.setText("140");
         }
     }//GEN-LAST:event_roomType_comboBoxActionPerformed
 
@@ -210,31 +260,80 @@ public class AddRoom extends javax.swing.JPanel {
         noOfGuest_field.setText(String.valueOf(value));
     }//GEN-LAST:event_noOfGuest_spinnerStateChanged
 
-    private void priceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceFieldActionPerformed
-        // TODO add your handling code here:
-      
-        
-    }//GEN-LAST:event_priceFieldActionPerformed
-
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
+        if (addRoomController == null) {
         addRoomController = new AddRoomController(this);
-        addRoomController.open();
+    }
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void priceField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceField1ActionPerformed
+
+    private void txtImagePathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImagePathActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtImagePathActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+        "Image files", "jpg", "jpeg", "png", "gif"));
+    
+    int result = fileChooser.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
+        
+        try {
+            String fileName = System.currentTimeMillis() + "_" + selectedFile.getName();
+            
+            String projectPath = System.getProperty("user.dir");
+            
+            File imagesDir = new File(projectPath, "images");
+            
+            if (!imagesDir.exists()) {
+                boolean created = imagesDir.mkdirs();
+            }
+            
+            File destFile = new File(imagesDir, fileName);
+            
+            Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            
+            if (destFile.exists()) {
+                txtImagePath.setText(fileName);
+                JOptionPane.showMessageDialog(this, "Image uploaded successfully!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Image was not copied properly!");
+            }
+            
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error copying image: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField noOfGuest_field;
     private javax.swing.JSpinner noOfGuest_spinner;
     private javax.swing.JLabel no_of_guest_label;
     private javax.swing.JLabel no_of_guest_label1;
-    private javax.swing.JTextField priceField;
+    private javax.swing.JLabel no_of_guest_label2;
+    private javax.swing.JTextField priceField1;
     private javax.swing.JComboBox<String> roomType_comboBox;
     private javax.swing.JTextField roomType_field;
     private javax.swing.JLabel roomType_label;
+    private javax.swing.JLabel roomType_label1;
+    private javax.swing.JTextField txtImagePath;
     // End of variables declaration//GEN-END:variables
     public void addAddRoomListener(ActionListener listener) {
         addButton.addActionListener(listener);
@@ -258,11 +357,22 @@ public class AddRoom extends javax.swing.JPanel {
     
     //getter and setter for price
     public int getPrice() {
-        return Integer.parseInt(priceField.getText());
+        return Integer.parseInt(priceField1.getText());
     }
     public void setPrice(int price) {
-        priceField.setText(String.valueOf(price));
+        priceField1.setText(String.valueOf(price));
     }
     
+    //getter and setter for image path
+    public String getImagePath() {
+        return txtImagePath.getText();
+    }
+    public void setImagePath(String image_path) {
+        txtImagePath.setText(image_path);
+    }
+    
+    public void clearImagePathField() {
+    txtImagePath.setText("");
+}
 
 }

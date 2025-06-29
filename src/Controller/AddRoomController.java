@@ -36,19 +36,27 @@ public class AddRoomController {
             String roomType = addRoom.getRoomType();
             int guests = addRoom.getGuests();
             int price = addRoom.getPrice();
+            String imagePath = addRoom.getImagePath();
             
-            RoomModel roomModel = new RoomModel(roomType,guests,price);
+            if(imagePath == null || imagePath.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(addRoom, "Please select an image for the room");
+                return;
+            }
+            
+            RoomModel roomModel = new RoomModel(roomType,guests,price,imagePath);
             
             boolean success = addRoomDao.AddRoom(roomModel);
             
             if(success) {
             JOptionPane.showMessageDialog(addRoom, "Room added successfully");
+            addRoom.clearImagePathField();
 
             } else {
             JOptionPane.showMessageDialog(addRoom, "Failed to add room");
 
             }
         }
+        
         
     }
     
