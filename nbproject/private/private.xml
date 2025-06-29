@@ -3,12 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/UserProfileDao.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/MyProfilePanel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/hotel/booking/management/HotelBookingManagement.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/AddRoom.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/AddRoomController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/AddRoomDao.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/RoomModel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/DashboardPanel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/BookingCardPanel.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/RoomCard.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Invoice.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/DAO/AuthDao.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/RegistrationController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/ForgotPasswordController.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/ForgotPassword.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/BookingController.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/UserProfileController.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/UserDashboard.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/MyBookingPanel.java</file>
-            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/View/Register.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Model/Userdata.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/Hotel-Booking-system/src/Controller/EditBookingController.java</file>
         </group>
     </open-files>
 </project-private>

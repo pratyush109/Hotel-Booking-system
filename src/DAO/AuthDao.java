@@ -5,11 +5,14 @@
 package DAO;
 
 import Database.MySqlConnection;
+import Model.AdminModel;
 import Model.Userdata;
 import Model.LoginModel;
+import View.AdminLogin;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -100,6 +103,65 @@ public class AuthDao {
             }
             return null;
       }
+      
+      public boolean updatePasswordBySecurityAnswer(String email, String securityAnswer, String newPassword) {
+        try (Connection con = connection.openConnection()) {
+            String sql = "UPDATE users SET password = ? WHERE email = ? AND security_answer = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, newPassword);
+            stmt.setString(2, email);
+            stmt.setString(3, securityAnswer);
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+}
+      public boolean isEmailRegistered(String email) {
+        Connection conn = connection.openConnection();
+        String sql = "SELECT 1 FROM users WHERE email = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next(); 
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            connection.closeConnection(conn);
+        }
+}
+
+      public boolean AdminLogin(AdminModel admin) {
+          
+          AdminLogin adminLogin = new AdminLogin();
+          
+          Connection conn = connection.openConnection();
+          String sql = "SELECT id FROM admin WHERE username = ? and password = ? ";
+          
+          try(PreparedStatement ptsmt = conn.prepareStatement(sql)) {
+              
+              ptsmt.setString(1, admin.getAdminName());
+              ptsmt.setString(2, admin.getPassword());
+              
+              ResultSet result = ptsmt.executeQuery();
+              
+              return result.next();
+          
+          } catch(SQLException e) {
+        Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, e);
+        return false;
+          } finally {
+          connection.closeConnection(conn);
+
+          }
+      }
+
+      
+     
+
 }
     
     
