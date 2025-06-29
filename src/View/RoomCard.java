@@ -6,6 +6,7 @@ package View;
 
 import Model.RoomModel;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
 
 /**
@@ -124,21 +125,40 @@ public class RoomCard extends javax.swing.JPanel {
     private javax.swing.JLabel roomIDLabel;
     private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
-public void setRoomData(RoomModel room) {
+
    
-        roomIDLabel.setText("Room Number :" + room.getRoomId());
+      
+   
+public void setRoomData(RoomModel room) {
+ roomIDLabel.setText("Room Number :" + room.getRoomId());
         typeLabel.setText("Room Type: " + room.getRoomType());
         guestLabel.setText("Price Rs. : " + room.getNoOfGuest());
         priceLabel.setText("Max Guest : " + room.getPrice());
-       
-        
+    
+    String imagePath = room.getImagePath();
+
+    if (imagePath != null && !imagePath.isEmpty()) {
         try {
-            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/" + room.getImagePath()));
-            Image img = imageIcon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
-            imageLabel.setIcon(new ImageIcon(img));
+            String fullPath = "images/" + imagePath;
+            File imageFile = new File(fullPath);
+            
+            if (imageFile.exists()) {
+                ImageIcon imageIcon = new ImageIcon(fullPath);
+                Image img = imageIcon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
+                imageLabel.setIcon(new ImageIcon(img));
+                imageLabel.setText(""); 
+            } else {
+                imageLabel.setText("No Image Available");
+                imageLabel.setIcon(null);
+            }
         } catch (Exception e) {
             imageLabel.setText("No Image Available");
+            imageLabel.setIcon(null);
+            e.printStackTrace();
         }
+    } else {
+        imageLabel.setText("No Image Available");
+        imageLabel.setIcon(null);
     }
 }
-
+}
