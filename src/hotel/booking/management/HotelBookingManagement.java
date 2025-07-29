@@ -12,7 +12,7 @@ import Database.Mysqlconnection;
  * @author Pratyush
  */
 public class HotelBookingManagement {
-
+// booking
     public static void main(String[] args) {
         // TODO code application logic here
         Database db =  new Mysqlconnection();
