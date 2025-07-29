@@ -21,7 +21,7 @@ public class ForgotPasswordController {
 
       public ForgotPasswordController(ForgotPassword forgotPasswordView) {
             this.forgotPasswordView = forgotPasswordView;
-
+// controller
              forgotPasswordView.addForgotPasswordListener(new ForgotPasswordListener());
              forgotPasswordView.addConfirmEmailListener(new ConfirmEmailListener());
       }
