@@ -10,7 +10,7 @@ package Database;
  */
 import java.sql.Connection;
 import java.sql.ResultSet;
-
+// connection
 
 public interface Database {
     Connection openConnection(); // Propagate exception for callers to handle.
