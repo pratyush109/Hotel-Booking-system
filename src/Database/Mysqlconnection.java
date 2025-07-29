@@ -18,7 +18,7 @@ public class Mysqlconnection implements Database {
             String username = "root";
             String password =" puyjvlg2r"; // Replace with your actual MySQL password
             String database = "HotelManagement";
-
+// connection
             // Use correct driver class
             Class.forName("com.mysql.cj.jdbc.Driver");
 
