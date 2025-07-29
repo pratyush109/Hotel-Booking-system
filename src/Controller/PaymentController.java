@@ -9,6 +9,7 @@ import DAO.InvoiceDao;
 import Model.BookingModel;
 import Model.ChargesCalculationModel;
 import Model.InvoiceModel;
+import View.Invoice;
 import View.PaymentPage;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
@@ -27,63 +28,49 @@ public class PaymentController {
         this.paymentPage = paymentPage;
     }
     
-//    public void processPayment(int bookingId, int roomId, int userId, double roomCharges, double serviceCharges, String paymentMethod) {
-//    double tax = (roomCharges + serviceCharges) * 0.18; 
-//    double total = roomCharges + serviceCharges + tax;
-//    java.sql.Date invoiceDate = new java.sql.Date(System.currentTimeMillis());
-//
-//    boolean updated = bookingDao.updateStatusToPaid(bookingId); 
-//
-//    if (updated) {
-//        invoiceDao.insertInvoice(new InvoiceModel(
-//                
-//        )); 
-//
-//        JOptionPane.showMessageDialog(null, "Payment successful! Invoice generated."); 
-//    } else {
-//        JOptionPane.showMessageDialog(null, "Payment failed. Try again.", "Error", JOptionPane.ERROR_MESSAGE);
-//    }
-//}
-    public void afterPayment(int bookingId, String paymentMethod) {
+
+public void afterPayment(int bookingId, String paymentMethod) {
+    boolean success = bookingDao.updateStatusToPaid(bookingId);
+
+    if(success) {
+        JOptionPane.showMessageDialog(paymentPage, "Payment successful! Status updated to 'Paid and booked'.");
+
+        BookingModel bookingModel = bookingDao.detailedBookingInfo(bookingId);
+
+        InvoiceModel invoice = new InvoiceModel();
+
+        String roomType = bookingModel.getRoomType();
+        int roomCharges = bookingModel.getPrice();
+        double serviceCharges = ChargesCalculationModel.calculateServiceCharge(roomType, roomCharges);
+        double tax = ChargesCalculationModel.calculateTax(roomCharges, serviceCharges);
+
+        invoice.setBooking_id(bookingModel.getBookingId());
+        invoice.setRoomId(bookingModel.getRoomId());
+        invoice.setInvoiceDate(LocalDate.now().toString());
+        invoice.setCheckInDate(bookingModel.getCheckInDate());
+        invoice.setCheckOutDate(bookingModel.getCheckOutDate());
+        invoice.setRoomPrice(roomCharges);
+        invoice.setServiceCharge(serviceCharges);
+        invoice.setTax(tax);
+        invoice.setTotalAmount(roomCharges + serviceCharges + tax);
+        invoice.setPaymentMethod(paymentMethod);
+
+        invoiceDao.addInvoice(invoice);
+        
+        Invoice invoiceUI = new Invoice(invoice);
+        invoiceUI.setVisible(true);
+        
+        paymentPage.dispose();
+
+        
        
-        boolean success = bookingDao.updateStatusToPaid(bookingId);
-
         
-        if(success) {
-            JOptionPane.showMessageDialog(paymentPage, "Payment successful! Status updated to 'Paid and booked'.");
-            paymentPage.dispose();
-            
-            BookingModel bookingModel = bookingDao.detailedBookingInfo(bookingId);
-            
-            InvoiceModel invoice = new InvoiceModel();
-            ChargesCalculationModel calculator = new ChargesCalculationModel();
-            
-            String roomType = bookingModel.getRoomType();
-            double roomCharges = bookingModel.getPrice();
-            double serviceCharges = calculator.calculateServiceCharge(roomType, roomCharges);
-            
-            invoice.setBooking_id(bookingModel.getBookingId());
-            invoice.setRoomId(bookingModel.getRoomId());
-            invoice.setInvoiceDate(LocalDate.now().toString());
-            invoice.setCheckInDate(bookingModel.getCheckInDate());
-            invoice.setCheckOutDate(bookingModel.getCheckOutDate());
-            invoice.setRoomPrice(bookingModel.getPrice());
-            invoice.setServiceCharge(serviceCharges);
-            invoice.setTax(calculateTax());                            
-            invoice.setTotalAmount(invoice.getRoomPrice() + invoice.getServiceCharge() + invoice.getTax());
-            invoice.setPaymentMethod(paymentMethod);   
-            
-            
-            
-            
-
-        }
-        else {
-            JOptionPane.showMessageDialog(paymentPage, "Payment failed. Please try again.");
-
-        }
         
+
+    } else {
+        JOptionPane.showMessageDialog(paymentPage, "Payment failed. Please try again.");
     }
+}
 
     
 }

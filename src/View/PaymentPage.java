@@ -18,25 +18,27 @@ import javax.swing.JOptionPane;
  */
 public class PaymentPage extends javax.swing.JFrame {
     
-    
     private int bookingId;
+   
     private PaymentController paymentController;
     
-    public PaymentPage() {
-    }
+    public PaymentPage() {}
+    
+
     
 
     /**
      * Creates new form PaymentPage
      */
     public PaymentPage(int bookingId) {
-       
-        this.bookingId = bookingId;
+        
+       this.bookingId = bookingId;
+
         initComponents();
         paymentController = new PaymentController(this);
         ButtonGroup paymentGroup = new ButtonGroup();
-        paymentGroup.add(jRadioButton1);
-        paymentGroup.add(jRadioButton2);
+        paymentGroup.add(cashRadioButton);
+        paymentGroup.add(cardRadioButton);
         CardFields(false);
     }
 
@@ -54,10 +56,10 @@ public class PaymentPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        cashRadioButton = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        cardRadioButton = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -65,6 +67,7 @@ public class PaymentPage extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cardNumberField = new javax.swing.JTextField();
+        expiryDateCalendar = new com.toedter.calendar.JDateChooser();
         cvvField = new javax.swing.JTextField();
         expiryDateField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -86,9 +89,9 @@ public class PaymentPage extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Payment Method :");
 
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        cashRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                cashRadioButtonActionPerformed(evt);
             }
         });
 
@@ -100,9 +103,9 @@ public class PaymentPage extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Card");
 
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        cardRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                cardRadioButtonActionPerformed(evt);
             }
         });
 
@@ -126,6 +129,12 @@ public class PaymentPage extends javax.swing.JFrame {
 
         cardNumberField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
+        expiryDateCalendar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                expiryDateCalendarPropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,6 +150,8 @@ public class PaymentPage extends javax.swing.JFrame {
                     .addComponent(cardNumberField, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                     .addComponent(cvvField)
                     .addComponent(expiryDateField, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(expiryDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -151,9 +162,11 @@ public class PaymentPage extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(cardNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(expiryDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(expiryDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(expiryDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
@@ -207,13 +220,13 @@ public class PaymentPage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4)
                                 .addGap(12, 12, 12)
-                                .addComponent(jRadioButton1)
+                                .addComponent(cashRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2)
+                                .addComponent(cardRadioButton)
                                 .addGap(57, 57, 57)))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -239,9 +252,9 @@ public class PaymentPage extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel6)
                         .addComponent(jLabel4)
-                        .addComponent(jRadioButton1)
+                        .addComponent(cashRadioButton)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
+                            .addComponent(cardRadioButton)
                             .addComponent(jLabel5))))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,30 +298,30 @@ public class PaymentPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 private String selectedPaymentMethod = "Cash";
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed
         // TODO add your handling code here:
         selectedPaymentMethod = "Cash";
         CardFields(false);
         
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_cashRadioButtonActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void cardRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardRadioButtonActionPerformed
         // TODO add your handling code here:
         selectedPaymentMethod = "Card";
         CardFields(true);
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_cardRadioButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        // disposes the code 
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //this connectes the paymentcontroller
+            PaymentController controller = new PaymentController(this);
+            controller.afterPayment(getBookingId(), getPaymentMethod());
         
-        paymentController.afterPayment(bookingId);
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -364,7 +377,10 @@ private String selectedPaymentMethod = "Cash";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cardNumberField;
+    private javax.swing.JRadioButton cardRadioButton;
+    private javax.swing.JRadioButton cashRadioButton;
     private javax.swing.JTextField cvvField;
+    private com.toedter.calendar.JDateChooser expiryDateCalendar;
     private javax.swing.JTextField expiryDateField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -381,8 +397,6 @@ private String selectedPaymentMethod = "Cash";
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
 
     
@@ -424,7 +438,18 @@ private boolean validatePayment() {
     }
     return true;
 }
-
+ public String getPaymentMethod() {
+    if (cashRadioButton.isSelected()) {
+        return "Cash";
+    } else if (cardRadioButton.isSelected()) {
+        return "Card";
+    } else {
+        return "Unknown"; 
+    }
+}
+   public int getBookingId() {
+        return bookingId;
+    }
 
 
 }

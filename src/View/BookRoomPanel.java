@@ -37,14 +37,16 @@ public class BookRoomPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         roomType_label = new javax.swing.JLabel();
         roomType_field = new javax.swing.JTextField();
-        roomType_comboBox = new javax.swing.JComboBox<String>();
+        roomType_comboBox = new javax.swing.JComboBox<>();
         no_of_guest_label = new javax.swing.JLabel();
         noOfGuest_field = new javax.swing.JTextField();
         noOfGuest_spinner = new javax.swing.JSpinner();
         checkInDate_label = new javax.swing.JLabel();
         checkInDate_field = new javax.swing.JTextField();
+        checkInDate_calendar = new com.toedter.calendar.JDateChooser();
         checkOutDate_label = new javax.swing.JLabel();
         checkOutDate_field = new javax.swing.JTextField();
+        checkOutDate_calendar = new com.toedter.calendar.JDateChooser();
         sofaImage_label = new javax.swing.JLabel();
         roomType_label1 = new javax.swing.JLabel();
         roomNumber_field = new javax.swing.JTextField();
@@ -65,7 +67,7 @@ public class BookRoomPanel extends javax.swing.JPanel {
             }
         });
 
-        roomType_comboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Standard", "Deluxe", "Super Deluxe" }));
+        roomType_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard", "Deluxe", "Super Deluxe" }));
         roomType_comboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roomType_comboBoxActionPerformed(evt);
@@ -99,12 +101,24 @@ public class BookRoomPanel extends javax.swing.JPanel {
             }
         });
 
+        checkInDate_calendar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                checkInDate_calendarPropertyChange(evt);
+            }
+        });
+
         checkOutDate_label.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         checkOutDate_label.setText("Check-Out-Date:");
 
         checkOutDate_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkOutDate_fieldActionPerformed(evt);
+            }
+        });
+
+        checkOutDate_calendar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                checkOutDate_calendarPropertyChange(evt);
             }
         });
 
@@ -144,6 +158,8 @@ public class BookRoomPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkOutDate_calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkInDate_calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(noOfGuest_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(roomType_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -177,17 +193,24 @@ public class BookRoomPanel extends javax.swing.JPanel {
                             .addComponent(noOfGuest_field, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(noOfGuest_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
-                        .addComponent(checkInDate_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkInDate_field, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(checkInDate_label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(checkInDate_field, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(checkInDate_calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27)
                         .addComponent(checkOutDate_label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(checkOutDate_field, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkOutDate_field, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkOutDate_calendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sofaImage_label, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         bookRoom_Label.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -366,8 +389,10 @@ if (availableRooms.isEmpty()) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookNowButton;
     private javax.swing.JLabel bookRoom_Label;
+    private com.toedter.calendar.JDateChooser checkInDate_calendar;
     private javax.swing.JTextField checkInDate_field;
     private javax.swing.JLabel checkInDate_label;
+    private com.toedter.calendar.JDateChooser checkOutDate_calendar;
     private javax.swing.JTextField checkOutDate_field;
     private javax.swing.JLabel checkOutDate_label;
     private javax.swing.JPanel jPanel1;
