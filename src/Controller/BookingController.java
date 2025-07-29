@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Dell
  */
 public class BookingController {
-    
+// controller
     private final BookingDao bookingDao = new BookingDao();
     private final BookRoomPanel bookRoom;
  
