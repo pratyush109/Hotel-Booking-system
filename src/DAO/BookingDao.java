@@ -26,7 +26,7 @@ public class BookingDao {
     
     public boolean bookRoom(BookingModel bookingModel) {
     Connection conn = connection.openConnection();
-    
+// connection
     String sql = "INSERT INTO Bookings (room_id, user_id, check_in_date, check_out_date, guest_count) VALUES (?,?,?,?,?)";
     try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
         pstmt.setInt(1, bookingModel.getRoomId());
