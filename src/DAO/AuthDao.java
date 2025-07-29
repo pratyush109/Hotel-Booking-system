@@ -23,7 +23,7 @@ public class AuthDao {
     
     public void register(Userdata user) {
         Connection conn = connection.openConnection();
-        
+// user
         String sql = "INSERT INTO Users (fullname, email, username, password, security_answer) VALUES(?,?,?,?,?)";
         
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
