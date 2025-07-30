@@ -6,15 +6,11 @@
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/hotel/booking/management/HotelBookingManagement.java</file>
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/Database/MySqlConnection.java</file>
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/Session/Session.java</file>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/View/WelcomeScreen.java</file>
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/DAO/BookingDao.java</file>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/Controller/BookingController.java</file>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/View/PaymentPage.java</file>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/Model/PaymentMethod.java</file>
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/DAO/InvoiceDao.java</file>
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/DAO/PaymentDao.java</file>
             <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/Database/Database.java</file>
-            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/View/BookRoomPanel.java</file>
+            <file>file:/C:/Users/Pratyush/Documents/NetBeansProjects/Hotel%20booking%20management/src/View/WelcomeScreen.java</file>
         </group>
     </open-files>
 </project-private>
