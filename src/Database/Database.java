@@ -14,5 +14,5 @@ public interface Database {
     Connection closeConnection(Connection connection);
     ResultSet executeQuery(Connection connection, String query);
     int executeUpdate(Connection connection, String query);
-    
+    /
 }
