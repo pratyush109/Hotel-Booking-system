@@ -15,8 +15,7 @@ public class Session {
     
     private Session() {}
 
- * @author renisa
- */
+
 public class Session { // A singleton design
     
     private static Session session;
