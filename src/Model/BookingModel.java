@@ -41,7 +41,7 @@ public class BookingModel {
     this.checkInDate = checkInDate;
     this.checkOutDate = checkOutDate;
     } //this constructor is used it updateBooking controller
-// model
+
      
     //this constructor is for booking room where booking id is not necessary to insert 
     public BookingModel(int roomId, String roomType, int guestCount, String checkInDate, String checkOutDate) {
@@ -149,7 +149,8 @@ public class BookingModel {
     public void setCustomerName(String customer_name) {
         this.customer_name = customer_name;
     }
-
+    
+     
 
 
    

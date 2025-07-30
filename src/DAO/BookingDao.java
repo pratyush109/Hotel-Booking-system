@@ -26,7 +26,7 @@ public class BookingDao {
     
     public boolean bookRoom(BookingModel bookingModel) {
     Connection conn = connection.openConnection();
-// connection
+    
     String sql = "INSERT INTO Bookings (room_id, user_id, check_in_date, check_out_date, guest_count) VALUES (?,?,?,?,?)";
     try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
         pstmt.setInt(1, bookingModel.getRoomId());
@@ -95,7 +95,8 @@ public List<Integer> getAvailableRooms(String roomType, int guestCount, String c
     return availableRooms;
 }
 
-// 
+    
+//it helps to fetch data of specific booking of a user
 public List<BookingModel> getBookingInfo() {
     
     List<BookingModel> bookings = new ArrayList<>();
@@ -125,14 +126,10 @@ public List<BookingModel> getBookingInfo() {
             bookings.add(bookingModel);
         }
         
-        
-        
-        
     } catch(SQLException e) {
         
         Logger.getLogger(AuthDao.class.getName()).log(Level.SEVERE, null, e);
         return null;
-        
     
     } finally {
         connection.closeConnection(conn);
@@ -207,7 +204,6 @@ public BookingModel detailedBookingInfo(int bookingId) {
     }
     
     
-// Updated updateBooking method - WITHOUT total_amount
 public boolean updateBooking(int bookingId, int roomId, String roomType, int guestCount, String checkIn, String checkOut) {
     Connection conn = connection.openConnection();
     
@@ -216,7 +212,6 @@ public boolean updateBooking(int bookingId, int roomId, String roomType, int gue
             throw new SQLException("Selected room does not match the specified room type");
         }
         
-        // Remove total_amount from the UPDATE query
         String sql = "UPDATE bookings SET room_id = ?, guest_count = ?, check_in_date = ?, check_out_date = ? WHERE booking_id = ?";
         
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -224,7 +219,7 @@ public boolean updateBooking(int bookingId, int roomId, String roomType, int gue
             pstmt.setInt(2, guestCount);
             pstmt.setString(3, checkIn);
             pstmt.setString(4, checkOut);
-            pstmt.setInt(5, bookingId); // bookingId is now parameter 5
+            pstmt.setInt(5, bookingId); 
             
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected == 0) {
@@ -243,56 +238,9 @@ public boolean updateBooking(int bookingId, int roomId, String roomType, int gue
     }
 }
 
-public boolean updateBookingPayment(int bookingId, double totalAmount, String paymentStatus) {
-    Connection conn = connection.openConnection();
-    
-    try {
-        String sql = "UPDATE bookings SET total_amount = ?, payment_status = ? WHERE booking_id = ?";
-        
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setDouble(1, totalAmount);
-            pstmt.setString(2, paymentStatus); 
-            pstmt.setInt(3, bookingId);
-            
-            int rowsAffected = pstmt.executeUpdate();
-            if (rowsAffected == 0) {
-                throw new SQLException("Failed to update booking payment - no rows affected");
-            }
-            
-            return true;
-        }
-        
-    } catch (SQLException e) {
-        Logger.getLogger(BookingDao.class.getName()).log(Level.SEVERE, "Update booking payment failed", e);
-        return false;
-        
-    } finally {
-        connection.closeConnection(conn);
-    }
-}
 
-public boolean updateBookingTotalAmount(int bookingId, double totalAmount) {
-    Connection conn = connection.openConnection();
-    
-    try {
-        String sql = "UPDATE bookings SET total_amount = ? WHERE booking_id = ?";
-        
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setDouble(1, totalAmount);
-            pstmt.setInt(2, bookingId);
-            
-            int rowsAffected = pstmt.executeUpdate();
-            return rowsAffected > 0;
-        }
-        
-    } catch (SQLException e) {
-        Logger.getLogger(BookingDao.class.getName()).log(Level.SEVERE, "Update booking total amount failed", e);
-        return false;
-        
-    } finally {
-        connection.closeConnection(conn);
-    }
-}
+
+  
  private boolean validateRoomType(int roomId, String expectedRoomType) {
     Connection conn = connection.openConnection();
     String sql = "SELECT room_type FROM rooms WHERE room_id = ?";
@@ -314,6 +262,8 @@ public boolean updateBookingTotalAmount(int bookingId, double totalAmount) {
     
     return false;
 }
+ 
+ //to get the price according to the room price
  public double getRoomPriceByType(String roomType) {
     Connection conn = connection.openConnection();
     String sql = "SELECT price FROM Rooms WHERE room_type = ? LIMIT 1";
@@ -463,6 +413,28 @@ public boolean updateBookingTotalAmount(int bookingId, double totalAmount) {
      }
       return bookings;
                  }
+     public boolean cancelBooking(BookingModel bookingModel) {
+        Connection conn = connection.openConnection();
+        
+       String sql = "UPDATE bookings SET status = ? WHERE booking_id = ?";
+       
+    try (PreparedStatement ptsmt = conn.prepareStatement(sql)) {
+        
+        ptsmt.setString(1, "Cancelled");
+        ptsmt.setInt(2, bookingModel.getBookingId());
+        
+        int rowsAffected = ptsmt.executeUpdate();
+        return rowsAffected > 0;
+            
+            
+        } catch(SQLException e) {
+                    Logger.getLogger(BookingDao.class.getName()).log(Level.SEVERE, "Failed to delete booking", e);
+                    return false;
+        } finally {
+            connection.closeConnection(conn);
+        }
+        
+    } 
           
  
 }
