@@ -9,7 +9,7 @@ package Model;
  * @author Dell
  */
 public class ChargesCalculationModel {
-    
+   // 
   public static double calculateServiceCharge(String roomType, double roomCharges) {
     
     roomType = "standard";   

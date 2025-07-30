@@ -23,7 +23,7 @@ public class Session { // A singleton design
     private static Session session;
     private int loggedInUserId = -1;
     private int bookingId = -1;
-    
+ //   
     private Session() {} // private constructor will help us to prevent outside instantiation
 
 
