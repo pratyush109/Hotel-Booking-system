@@ -4,12 +4,28 @@
  */
 package View;
 
+import Model.InvoiceModel;
+
 /**
  *
  * @author Dell
  */
 public class Invoice extends javax.swing.JFrame {
 
+      public Invoice(InvoiceModel invoiceModel) {
+    initComponents(); 
+    
+    setBookingId(invoiceModel.getBookingId());
+    setRoomId(invoiceModel.getRoomId());
+    setCheckInDate(invoiceModel.getCheckInDate());
+    setCheckOutDate(invoiceModel.getCheckOutDate());
+    setInvoiceDate(invoiceModel.getInvoiceDate());
+
+    jTable2.setValueAt(invoiceModel.getRoomPrice(), 0, 0);
+    jTable2.setValueAt(invoiceModel.getServiceCharge(), 0, 1);
+    jTable2.setValueAt(invoiceModel.getTax(), 0, 2);
+    jTable2.setValueAt(invoiceModel.getTotalAmount(), 0, 3);
+}
     /**
      * Creates new form Invoice
      */
@@ -40,9 +56,11 @@ public class Invoice extends javax.swing.JFrame {
         invoiceDateLabel = new javax.swing.JLabel();
         checkInDateLabel = new javax.swing.JLabel();
         checkOutDateLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(217, 217, 217));
+        setPreferredSize(new java.awt.Dimension(450, 550));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Booking_id :");
@@ -93,6 +111,13 @@ public class Invoice extends javax.swing.JFrame {
 
         checkOutDateLabel.setText("checkOutDate");
 
+        jButton1.setText("close");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,6 +153,10 @@ public class Invoice extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(165, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,11 +187,18 @@ public class Invoice extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +226,6 @@ public class Invoice extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Invoice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -205,6 +240,7 @@ public class Invoice extends javax.swing.JFrame {
     private javax.swing.JLabel checkInDateLabel;
     private javax.swing.JLabel checkOutDateLabel;
     private javax.swing.JLabel invoiceDateLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -230,7 +266,7 @@ public class Invoice extends javax.swing.JFrame {
     public String getInvoiceDate() {
         return invoiceDateLabel.getText();
     }
-    public void setBookingId(String invoiceDate) {
+    public void setInvoiceDate(String invoiceDate) {
         this.invoiceDateLabel.setText(invoiceDate);
     }
     //getter and setter for roomId

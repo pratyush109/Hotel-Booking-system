@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package ontroller;
 
 import DAO.UserProfileDao;
 import Model.Userdata;
@@ -73,6 +73,16 @@ public class UserProfileController {
         updatedUser.setEmail(email);
         updatedUser.setfullName(fullname);
         updatedUser.setUsername(username);
+        
+         if (email.isEmpty() || fullname.isEmpty() || username.isEmpty()) {
+        JOptionPane.showMessageDialog(profilePanel, "All fields are required.");
+        return;
+    }
+
+    if (fullname.matches(".*\\d.*")) {
+        JOptionPane.showMessageDialog(profilePanel, "Full name should not contain numbers.");
+        return;
+    }
         
         int userId = Session.getSession().getLoggedInUserId();
         

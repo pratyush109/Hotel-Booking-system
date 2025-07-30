@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controller;
+package ontroller;
 
 import DAO.AuthDao;
 import View.ForgotPassword;
@@ -40,6 +40,7 @@ class ForgotPasswordListener implements ActionListener {
             String email = forgotPasswordView.getEmail();
             String securityAnswer = forgotPasswordView.getSecurityAnswer();
             String newPassword = forgotPasswordView.getNewPassword();
+            
 
             boolean isUpdated = user.updatePasswordBySecurityAnswer(email, securityAnswer, newPassword);
 
