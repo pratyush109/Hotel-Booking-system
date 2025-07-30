@@ -18,18 +18,17 @@ import java.util.logging.Logger;
 public class AddRoomDao {
     MySqlConnection connection = new MySqlConnection();    
     
-   
-    
     public boolean AddRoom(RoomModel roomModel) {
         Connection conn = connection.openConnection();
         
-        String sql = "INSERT INTO Rooms (room_type, max_guests, price) VALUES (?,?,?)";
+        String sql = "INSERT INTO Rooms (room_type, max_guests, price, image_path) VALUES (?,?,?,?)";
         
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
             
             pstmt.setString(1, roomModel.getRoomType());
             pstmt.setInt(2, roomModel.getNoOfGuest());
             pstmt.setInt(3, roomModel.getPrice());
+            pstmt.setString(4, roomModel.getImagePath());
             
             pstmt.executeUpdate();
             return true;
