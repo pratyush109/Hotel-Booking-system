@@ -8,7 +8,7 @@ import DAO.AuthDao;
 import Model.LoginModel;
 import Session.Session;
 import View.BookRoomPanel;
-import View.UserDashboard;
+import View.UserNavBar;
 import View.UserLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,7 +58,7 @@ public class LoginController {
                JOptionPane.showMessageDialog(userLogin, "Login successful!");
                close();
                
-               UserDashboard userDashboard = new UserDashboard();
+               UserNavBar userDashboard = new UserNavBar();
                userDashboard.setVisible(true);
                
                BookRoomPanel bookRoomPanel = new BookRoomPanel();
