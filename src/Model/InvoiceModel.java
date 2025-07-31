@@ -9,7 +9,7 @@ package Model;
  * @author Dell
  */
 public class InvoiceModel {
-  //  
+    
     private int booking_id;   
     private int invoice_id;
     private String invoice_date;    
