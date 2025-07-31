@@ -1,10 +1,4 @@
 /build/
 /dist/
-<<<<<<< HEAD
-=======
->>>>>>> origin/register
-/build/
-=======
 nbproject/private/private.xml
 src/View/Emailverification.java
->>>>>>> Samirr

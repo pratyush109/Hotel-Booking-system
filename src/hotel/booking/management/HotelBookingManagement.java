@@ -1,11 +1,10 @@
 package hotel.booking.management;
 
-<<<<<<< HEAD
-  
+import Controller.LoginController;
+import Database.Database;
+import Database.MySqlConnection;
+import View.UserLogin;
 
-<<<<<<< HEAD
-=======
->>>>>>> Samirr
 /**
  *
  * @author Dell
@@ -19,7 +18,7 @@ public class HotelBookingManagement {
         // TODO code application logic here
         Database db = new MySqlConnection();
         if (db.openConnection() != null) {
-            System.out.println("Database connection successfull");
+            System.out.println("Database connection successful");
         } else {
             System.out.println("Database connection failed");
         }
@@ -29,8 +28,4 @@ public class HotelBookingManagement {
         logcontroller.open();
     }
 }
-<<<<<<< HEAD
-=======
->>>>>>> master
-=======
->>>>>>> Samirr
+
