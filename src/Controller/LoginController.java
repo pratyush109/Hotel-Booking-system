@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
+<<<<<<< HEAD
 ///
+=======
+
+>>>>>>> 946d894fa06868d62d28ac927c851e731749b88a
 import DAO.AuthDao;
 import Model.LoginModel;
 import Session.Session;
