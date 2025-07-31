@@ -1,10 +1,13 @@
 package hotel.booking.management;
 
+<<<<<<< HEAD
+=======
 import Controller.LoginController;
 import Database.Database;
 import Database.MySqlConnection;
 import View.UserLogin;
 
+>>>>>>> 946d894fa06868d62d28ac927c851e731749b88a
 /**
  *
  * @author Dell
@@ -28,4 +31,7 @@ public class HotelBookingManagement {
         logcontroller.open();
     }
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 946d894fa06868d62d28ac927c851e731749b88a
