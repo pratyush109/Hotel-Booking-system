@@ -1,7 +1,5 @@
+package hotel.booking.management;
 
-  
-
-<<<<<<< HEAD
 /**
  *
  * @author Dell
@@ -13,24 +11,15 @@ public class HotelBookingManagement {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-                Database db = new MySqlConnection();
-        if(db.openConnection() !=null) {
+        Database db = new MySqlConnection();
+        if (db.openConnection() != null) {
             System.out.println("Database connection successfull");
-        } 
-        else {
+        } else {
             System.out.println("Database connection failed");
         }
-       
-        
+
         UserLogin loginform = new UserLogin();
         LoginController logcontroller = new LoginController(loginform);
         logcontroller.open();
-        
-       
-      
-      
     }
-    
 }
-=======
->>>>>>> master

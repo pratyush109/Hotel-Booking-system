@@ -1,5 +1,4 @@
 /build/
-<<<<<<< HEAD
 /dist/
-=======
->>>>>>> origin/register
+nbproject/private/private.xml
+src/View/Emailverification.java

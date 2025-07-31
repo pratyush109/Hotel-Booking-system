@@ -6,6 +6,7 @@ package Session;
 
 /**
  *
+
  * @author Dell
  */
 public class Session { // A singleton design
@@ -16,13 +17,23 @@ public class Session { // A singleton design
     //
     private Session() {} // private constructor will help us to prevent outside instantiation
 
+
+public class Session { // A singleton design
+    
+    private static Session session;
+    private int loggedInUserId = -1;
+    private int bookingId = -1;
+ //   
+    private Session() {} // private constructor will help us to prevent outside instantiation
+
+
     public static Session getSession() {
         if(session == null) {
             session = new Session();
         }
         return session;
     }
-    // getter and setter for userId
+
     public int getLoggedInUserId() {
     return loggedInUserId;
     }
@@ -30,6 +41,7 @@ public class Session { // A singleton design
         this.loggedInUserId = userId;
     }
     
+
     // getter and setter for bookingId
        public int getBookingId() {
         return bookingId;
@@ -39,5 +51,5 @@ public class Session { // A singleton design
         this.bookingId = id;
     }
     
-    
+
 }
